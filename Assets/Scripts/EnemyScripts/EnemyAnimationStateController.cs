@@ -6,18 +6,17 @@ public class EnemyAnimationStateController : MonoBehaviour
 {
     // Start is called before the first frame update
     Animator animator;
-    public bool isMoving;
+    NavMeshAI ai;
     void Start()
     {
         animator = GetComponent<Animator>();
-        isMoving = true;
+        ai = GetComponent<NavMeshAI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        isMoving = NavMeshAI.isMoving;
-        animator.SetBool("isRunning", isMoving);
+        animator.SetBool("isRunning", ai.isMoving);
 
     }
 }

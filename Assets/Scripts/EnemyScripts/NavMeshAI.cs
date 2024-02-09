@@ -11,44 +11,42 @@ public class NavMeshAI : MonoBehaviour
     public float detectionRadius;
     public float offset;
 
-    public static bool isMoving;
+    public bool isMoving;
     public bool isInMeleeRange;
 
     public float meleeRange;
 
     Vector3 playerPos;
     Vector2 currentPos;
-    Vector2 updatedPos;
 
-    public float positionDifference = 0.001f;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         playerPos = PlayerMovement.playerPosition;
-        currentPos = new Vector2(transform.position.x, transform.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
         playerPos = PlayerMovement.playerPosition;
+        currentPos = new Vector2(transform.position.x, transform.position.z);
         Move();
-        updatedPos = new Vector2(transform.position.x, transform.position.z);
+        Vector2 nextPosition = new Vector2(transform.position.x, transform.position.z);
 
-
-        if (Vector2.Distance(currentPos, updatedPos) > positionDifference)
+        if (agent.velocity.magnitude > new Vector3(0, 0, 0).magnitude)
         {
-            //Debug.Log("Position has changed");
+            Debug.Log("pasikeite");
             isMoving = true;
-            currentPos = updatedPos;
-        } 
+        }
         else
         {
-            //Debug.Log("Position has not changed");
+            Debug.Log("nepasikeite");
             isMoving = false;
         }
             
+        
+
     }
 
     void Move()
@@ -56,7 +54,6 @@ public class NavMeshAI : MonoBehaviour
         float distance = Vector3.Distance(transform.position, playerPos);
 
         Vector3 direction  = playerPos - transform.position;
-
         //Debug.Log(distance);
         if(distance <= detectionRadius)
         {
@@ -66,7 +63,7 @@ public class NavMeshAI : MonoBehaviour
             if (distance < offset)
             {
                 agent.ResetPath();
-                
+
             }
             else if (distance <= offset + meleeRange)
                 isInMeleeRange= true;
