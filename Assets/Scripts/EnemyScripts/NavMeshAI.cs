@@ -32,16 +32,15 @@ public class NavMeshAI : MonoBehaviour
         playerPos = PlayerMovement.playerPosition;
         currentPos = new Vector2(transform.position.x, transform.position.z);
         Move();
-        Vector2 nextPosition = new Vector2(transform.position.x, transform.position.z);
 
         if (agent.velocity.magnitude > new Vector3(0, 0, 0).magnitude)
         {
-            Debug.Log("pasikeite");
+            //Debug.Log("pasikeite");
             isMoving = true;
         }
         else
         {
-            Debug.Log("nepasikeite");
+            //Debug.Log("nepasikeite");
             isMoving = false;
         }
             
