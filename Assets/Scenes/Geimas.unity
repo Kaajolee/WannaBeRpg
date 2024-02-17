@@ -1467,6 +1467,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 795e85c2f9edd17418db1b83322abf1e, type: 3}
+--- !u!1 &235473115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 897967735444762139, guid: cf22b64d522107e428513c5fe0438a78,
+    type: 3}
+  m_PrefabInstance: {fileID: 2455514457453515051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &244830844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2685,7 +2691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 103.3, y: -33.8}
+  m_AnchoredPosition: {x: 103.30005, y: -33.80005}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &477385058
@@ -5877,7 +5883,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191004715}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.39583415, y: 0.15493241, z: -0.067945085, w: 0.90260446}
+  m_LocalRotation: {x: 0.39583415, y: 0.1549324, z: -0.06794508, w: 0.90260446}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10783,7 +10789,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 897967735444762139, guid: cf22b64d522107e428513c5fe0438a78,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5189935598246578228}
   m_SourcePrefab: {fileID: 100100000, guid: cf22b64d522107e428513c5fe0438a78, type: 3}
 --- !u!4 &5189935598246578216 stripped
 Transform:
@@ -10791,6 +10801,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2455514457453515051}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5189935598246578228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235473115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b61de42cd9f61045b3c65df7d5f698b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 15
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
