@@ -22,8 +22,8 @@ public class TeleportSpell : MonoBehaviour
     Vector3 FindDestination()
     {
         RaycastHit hit;
-        Vector3 destination;
-        if(Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
+        Vector3 destination = transform.position;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
         {
             Debug.Log("pataike");
             destination = hit.point;
@@ -32,7 +32,7 @@ public class TeleportSpell : MonoBehaviour
         else
         {
             Debug.Log("Nepataike");
-            return transform.position;
+            return destination;
         }
             
         

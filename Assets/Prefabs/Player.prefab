@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42066799060287176}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11341183, y: -0.8695837, z: 0.41900134, w: 0.23537174}
-  m_LocalPosition: {x: 1.2216883, y: 4.5, z: 2.0541615}
+  m_LocalRotation: {x: 0.17065364, y: -0.8282833, z: 0.39971986, w: 0.35362154}
+  m_LocalPosition: {x: 1.7423912, y: 4.5, z: 1.6359024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -382,6 +382,7 @@ GameObject:
   - component: {fileID: 1877043786793480474}
   - component: {fileID: 7322420167365318671}
   - component: {fileID: 1648775572698400269}
+  - component: {fileID: 4751564320795446449}
   m_Layer: 7
   m_Name: Player
   m_TagString: player
@@ -446,8 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 40000
-  healthText: {fileID: 0}
+  maxHealth: 300
 --- !u!114 &9124918468497278902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,8 +501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7f092e7908a024c95d34a2108a3e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSelected: {fileID: 0}
-  equipController: {fileID: 0}
   attackPoint: {fileID: 1303242061947602086}
   attackRange: 0.5
   enemyLayers:
@@ -603,9 +601,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af68abc5989497449bd1eb24b33e935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireBallPrefab: {fileID: 0}
-  shootPosition: {fileID: 0}
-  fireBallSpeed: 0
+  shootPosition: {fileID: 7284083746067496045}
+  fireBallSpeed: 1200
+  castTime: 2
+  fireBallPrefab: {fileID: 8942003148454531160, guid: 1835045444b60f84b979e13b57477a1e,
+    type: 3}
+--- !u!114 &4751564320795446449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897967735444762139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b61de42cd9f61045b3c65df7d5f698b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 15
 --- !u!1 &903258490501618612
 GameObject:
   m_ObjectHideFlags: 0
@@ -5134,7 +5147,7 @@ Transform:
   m_GameObject: {fileID: 7411808343469800800}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.29, z: 0.418}
+  m_LocalPosition: {x: -0.041, y: 1.29, z: 0.777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
