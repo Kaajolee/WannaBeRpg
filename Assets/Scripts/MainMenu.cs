@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject OptionsPanelGO;
+    public GameObject CreditsPanelGO;
     private void Start()
     {
         OptionsPanelGO.SetActive(false);
+        CreditsPanelGO.SetActive(false);
     }
     public void OptionsMenuSelect()
     {
@@ -18,6 +20,7 @@ public class MainMenu : MonoBehaviour
     public void CreditsMenuSelect()
     {
         Debug.Log("Credits button pressed");
+        CreditsPanelGO.SetActive(!CreditsPanelGO.activeSelf);
     }
     public void ExitMenuSelect()
     {
