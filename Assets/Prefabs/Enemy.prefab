@@ -994,6 +994,7 @@ GameObject:
   - component: {fileID: 8694452461281411720}
   - component: {fileID: 909081901474114736}
   - component: {fileID: 3913248412447113918}
+  - component: {fileID: 6575251800622586653}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: enemy
@@ -1077,9 +1078,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRadius: 10
   offset: 1
+  isMoving: 0
   isInMeleeRange: 0
   meleeRange: 2
-  positionDifference: 0.001
 --- !u!114 &1960281431067270570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,7 +1125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267800dbc07bdeb4e85b2363cd005aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMoving: 0
 --- !u!136 &909081901474114736
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1165,6 +1165,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackSpeed: 1.5
+--- !u!114 &6575251800622586653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782702501690864755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66d1f3f92e2ced47a1346dc4e38790f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveDuration: 1
+  dissolveStrength: 0
+  bodyGO: {fileID: 823363123343470262}
 --- !u!1 &1789272960074739661
 GameObject:
   m_ObjectHideFlags: 0

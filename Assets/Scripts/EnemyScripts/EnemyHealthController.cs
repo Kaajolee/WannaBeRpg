@@ -7,6 +7,7 @@ public class EnemyHealthController : MonoBehaviour
     public int maxHealth = 100;
     private EnemyStatController statController;
 
+
     void Start()
     {
         health = maxHealth;
@@ -28,7 +29,9 @@ public class EnemyHealthController : MonoBehaviour
     }
     public void Die()
     {
-        Destroy(gameObject);
+        DissolveController dissolve = GetComponent<DissolveController>();
+        dissolve.StartDissolver();
+        //Destroy(gameObject);
     }
     public void TakeDamage(int damageAmount)
     {
