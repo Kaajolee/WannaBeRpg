@@ -32,5 +32,6 @@ public class DissolveController : MonoBehaviour
             yield return null;
         }
         Destroy(gameObject);
+        
     }
 }
