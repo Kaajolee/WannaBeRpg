@@ -38,4 +38,8 @@ public class EnemyStatController : MonoBehaviour
         int newDamageTaken = (int)Math.Round(damageTaken);
         return newDamageTaken;
     }
+    public int CalculateMoneyDropAmount()
+    {
+        return enemyLevel * 2 + GetComponent<EnemyHealthController>().maxHealth / 10;
+    }
 }

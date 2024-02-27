@@ -6,6 +6,7 @@ public class EnemyHealthController : MonoBehaviour
     public int health;
     public int maxHealth = 100;
     private EnemyStatController statController;
+    private bool isDead = false;
 
 
     void Start()
@@ -16,9 +17,10 @@ public class EnemyHealthController : MonoBehaviour
 
     void Update()
     {
-        if (health <= 0)
+        if (!isDead && health <= 0)
         {
             Die();
+            
         }
     }
     public void Heal(int healAmount)
@@ -29,17 +31,19 @@ public class EnemyHealthController : MonoBehaviour
     }
     public void Die()
     {
-        DissolveController dissolve = GetComponent<DissolveController>();
-        dissolve.StartDissolver();
-        //Destroy(gameObject);
+        if (!isDead)
+        {
+            isDead = true;
+            DissolveController dissolve = GetComponent<DissolveController>();
+            dissolve.StartDissolver();
+            MoneyController.instance.EnemyKilled(GetComponent<EnemyStatController>().CalculateMoneyDropAmount());
+            //Destroy(gameObject);
+        }
     }
     public void TakeDamage(int damageAmount)
     {
         health -= statController.CalculateDamageTake(damageAmount);
         Debug.Log($"{gameObject.name} hit, current health: {health}");
         health = Mathf.Clamp(health, 0, maxHealth);
-
-        
-
     }
 }

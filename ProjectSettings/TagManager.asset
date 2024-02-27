@@ -9,6 +9,10 @@ TagManager:
   - player
   - enemy
   - castBarLocation
+  - moneyText
+  - questText
+  - levelText
+  - xpText
   layers:
   - Default
   - TransparentFX

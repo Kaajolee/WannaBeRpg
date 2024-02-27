@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 125244417}
   m_Layer: 5
   m_Name: CurrentXpText
-  m_TagString: Untagged
+  m_TagString: xpText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2706,6 +2706,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd8e8f4640ee3ac4c9fa066d1d2e6024, type: 3}
+--- !u!1 &418649307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418649308}
+  - component: {fileID: 418649309}
+  m_Layer: 0
+  m_Name: MoneyLevelUIController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &418649308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418649307}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 714955578}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418649309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418649307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bae10906ccc0d947924445c0ae3306e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelGO: {fileID: 1964585498}
 --- !u!4 &447543764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7390884680824593162, guid: 2cc2bf9160eebe24ca2e2b9c23726db7,
@@ -2751,7 +2796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 103.30005, y: 10.299988}
+  m_AnchoredPosition: {x: 103.30005, y: 10.299927}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &477385058
@@ -4714,6 +4759,8 @@ Transform:
   - {fileID: 1624843570}
   - {fileID: 908353289}
   - {fileID: 1141565596}
+  - {fileID: 418649308}
+  - {fileID: 1287463175}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &727354310 stripped
@@ -7057,7 +7104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191004715}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.39583415, y: 0.15493242, z: -0.0679451, w: 0.90260446}
+  m_LocalRotation: {x: 0.39583415, y: 0.15493241, z: -0.067945085, w: 0.90260446}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7084,7 +7131,7 @@ GameObject:
   - component: {fileID: 1246636105}
   m_Layer: 5
   m_Name: MoneyText
-  m_TagString: Untagged
+  m_TagString: moneyText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7511,6 +7558,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278199150}
   m_CullTransparentMesh: 1
+--- !u!1 &1287463174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287463175}
+  - component: {fileID: 1287463176}
+  m_Layer: 0
+  m_Name: MoneyController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1287463175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287463174}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 714955578}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287463176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287463174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b623b5c1eb6fe014288fefa7988d8b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalMoney: 0
 --- !u!4 &1292038744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7390884680824593162, guid: 2cc2bf9160eebe24ca2e2b9c23726db7,
@@ -8430,7 +8522,7 @@ GameObject:
   - component: {fileID: 1388957318}
   m_Layer: 5
   m_Name: CurrentLevelText
-  m_TagString: Untagged
+  m_TagString: levelText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10634,7 +10726,7 @@ GameObject:
   - component: {fileID: 1772675301}
   m_Layer: 5
   m_Name: QuestPointsText
-  m_TagString: Untagged
+  m_TagString: questText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10655,7 +10747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34.6, y: -3.7}
+  m_AnchoredPosition: {x: 34.6, y: -2}
   m_SizeDelta: {x: 46.0807, y: 20.493}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1772675301
@@ -10690,8 +10782,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290624700
+  m_fontColor: {r: 0.7372549, g: 0.7372549, b: 0.7411765, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11818,7 +11910,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 26.961365, y: 8.949982}
+  m_AnchoredPosition: {x: 26.961426, y: 8.950073}
   m_SizeDelta: {x: 315.1972, y: 46.3443}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1964585500
@@ -13022,7 +13114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2118008558
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13233,10 +13325,10 @@ SceneRoots:
   - {fileID: 1045878331}
   - {fileID: 2455514457453515051}
   - {fileID: 385607149}
+  - {fileID: 1916795304}
   - {fileID: 401753489}
   - {fileID: 714955578}
   - {fileID: 274808307}
   - {fileID: 1365327606}
   - {fileID: 1430329009}
   - {fileID: 269644111}
-  - {fileID: 1916795304}
