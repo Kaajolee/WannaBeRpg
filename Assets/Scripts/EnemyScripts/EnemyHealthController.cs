@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyHealthController : MonoBehaviour
@@ -7,6 +8,7 @@ public class EnemyHealthController : MonoBehaviour
     public int maxHealth = 100;
     private EnemyStatController statController;
     private bool isDead = false;
+    public bool isBeingDamaged = false;
 
 
     void Start()
@@ -46,4 +48,9 @@ public class EnemyHealthController : MonoBehaviour
         Debug.Log($"{gameObject.name} hit, current health: {health}");
         health = Mathf.Clamp(health, 0, maxHealth);
     }
+    /*public void IsBeingDamaged()
+    {
+        float currentHp = health;
+        
+    }*/
 }

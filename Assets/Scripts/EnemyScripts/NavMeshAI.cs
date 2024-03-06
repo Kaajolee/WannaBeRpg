@@ -7,13 +7,13 @@ public class NavMeshAI : MonoBehaviour
 {
     // Start is called before the first frame update
     NavMeshAgent agent;
-
+    EnemyHealthController enemyHealthController;
     public float detectionRadius;
     public float offset;
 
     public bool isMoving;
     public bool isInMeleeRange;
-
+    private bool isAttacking;
     public float meleeRange;
 
     Vector3 playerPos;
@@ -23,6 +23,8 @@ public class NavMeshAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         playerPos = PlayerMovement.playerPosition;
+        isAttacking = GetComponent<EnemyMeleeAttack>().isAttacking;
+        enemyHealthController = GetComponent<EnemyHealthController>();
     }
 
     // Update is called once per frame
@@ -69,6 +71,15 @@ public class NavMeshAI : MonoBehaviour
                 isInMeleeRange = false;
                 agent.SetDestination(targetPosition);
             }
+        }
+        //patikrint ar pahitino
+        //pamoovint link playerio
+    }
+    void MoveWhenHit()
+    {
+        if (!isAttacking && enemyHealthController.) 
+        { 
+
         }
     }
 }

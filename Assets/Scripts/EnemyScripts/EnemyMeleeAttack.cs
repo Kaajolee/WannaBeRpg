@@ -11,7 +11,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     public float attackSpeed;
     EnemyStatController enemyStatController;
     NavMeshAI navMeshAI;
-    private bool isAttacking = false;
+    public bool isAttacking = false;
     // Start is called before the first frame update
     void Start()
     {
