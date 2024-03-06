@@ -51,12 +51,7 @@ public class EnemyMeleeAttack : MonoBehaviour
                 //Debug.Log("Melee attack hit, name: " + player.name);
 
             }
-            if (Random.Range(0, 2) == 1)
-            {
-                animator.Play("PunchLeft");
-            }
-            else
-                animator.Play("PunchRight");
+            PlayMeleeAnimation();
         }
         isAttacking = false;
         
@@ -76,5 +71,14 @@ public class EnemyMeleeAttack : MonoBehaviour
             playerhealth.TakeDamage(damage);
             DamagePopUp.Create(gameObj.transform.position, damage, isCrit, gameObj.tag);
         }
+    }
+    void PlayMeleeAnimation()
+    {
+        if (Random.Range(0, 2) == 1)
+        {
+            animator.Play("PunchLeft");
+        }
+        else
+            animator.Play("PunchRight");
     }
 }
