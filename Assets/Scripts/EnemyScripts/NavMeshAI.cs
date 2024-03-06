@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -31,8 +33,50 @@ public class NavMeshAI : MonoBehaviour
     void Update()
     {
         playerPos = PlayerMovement.playerPosition;
-        Move();
+        DetectPlayer();
 
+        IsMoving();
+            
+        
+
+    }
+
+    void DetectPlayer()
+    {
+        float distance = Vector3.Distance(transform.position, playerPos);
+
+        Vector3 direction  = playerPos - transform.position;
+        //Debug.Log(distance);
+        if(distance <= detectionRadius)
+        {
+            Vector3 targetPosition = playerPos - direction.normalized * offset;
+            Move(distance, targetPosition);
+        }
+    }
+    void MoveWhenHit()
+    {
+        if (!isAttacking && enemyHealthController) 
+        {
+            Vector3 direction = playerPos - transform.position;
+        }
+    }
+    void Move(float distance, Vector3 targetPosition)
+    {
+        if (distance < offset)
+        {
+            agent.ResetPath();
+
+        }
+        else if (distance <= offset + meleeRange)
+            isInMeleeRange = true;
+        else
+        {
+            isInMeleeRange = false;
+            agent.SetDestination(targetPosition);
+        }
+    }
+    void IsMoving()
+    {
         if (agent.velocity.magnitude > new Vector3(0, 0, 0).magnitude)
         {
             //Debug.Log("pasikeite");
@@ -42,44 +86,6 @@ public class NavMeshAI : MonoBehaviour
         {
             //Debug.Log("nepasikeite");
             isMoving = false;
-        }
-            
-        
-
-    }
-
-    void Move()
-    {
-        float distance = Vector3.Distance(transform.position, playerPos);
-
-        Vector3 direction  = playerPos - transform.position;
-        //Debug.Log(distance);
-        if(distance <= detectionRadius)
-        {
-            //float stoppingDistance = detectionRadius - offset;
-            Vector3 targetPosition = playerPos - direction.normalized * offset;
-
-            if (distance < offset)
-            {
-                agent.ResetPath();
-
-            }
-            else if (distance <= offset + meleeRange)
-                isInMeleeRange= true;
-            else
-            {
-                isInMeleeRange = false;
-                agent.SetDestination(targetPosition);
-            }
-        }
-        //patikrint ar pahitino
-        //pamoovint link playerio
-    }
-    void MoveWhenHit()
-    {
-        if (!isAttacking && enemyHealthController.) 
-        { 
-
         }
     }
 }
