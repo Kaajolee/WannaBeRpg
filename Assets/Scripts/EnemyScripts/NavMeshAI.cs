@@ -17,7 +17,6 @@ public class NavMeshAI : MonoBehaviour
     public float meleeRange;
 
     Vector3 playerPos;
-    Vector2 currentPos;
 
 
     void Start()
@@ -30,7 +29,6 @@ public class NavMeshAI : MonoBehaviour
     void Update()
     {
         playerPos = PlayerMovement.playerPosition;
-        currentPos = new Vector2(transform.position.x, transform.position.z);
         Move();
 
         if (agent.velocity.magnitude > new Vector3(0, 0, 0).magnitude)
