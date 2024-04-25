@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterCreator : MonoBehaviour
 {
@@ -39,7 +40,8 @@ public class CharacterCreator : MonoBehaviour
     {
         Character builtChar = characterBuilderBase.Build();
         Debug.Log("Character built, colors: \n" + builtChar.GetCurrentColors());
-        // return builtChar;
+        SceneManager.LoadScene("Geimas");
+        //return builtChar;
 
     }
 }
