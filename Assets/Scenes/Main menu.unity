@@ -2198,9 +2198,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 715026107}
-        m_TargetAssemblyTypeName: CharacterColorSelector, Assembly-CSharp
-        m_MethodName: SetColors
+      - m_Target: {fileID: 715026109}
+        m_TargetAssemblyTypeName: CharacterCreator, Assembly-CSharp
+        m_MethodName: BuildCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2617,6 +2617,8 @@ GameObject:
   - component: {fileID: 715026106}
   - component: {fileID: 715026105}
   - component: {fileID: 715026107}
+  - component: {fileID: 715026108}
+  - component: {fileID: 715026109}
   m_Layer: 0
   m_Name: MainMenuScriptOBJ
   m_TagString: Untagged
@@ -2676,6 +2678,31 @@ MonoBehaviour:
   eyeIndex: 0
   skinIndex: 0
   clothingIndex: 0
+--- !u!114 &715026108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715026104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187511391ec37c145af7fa85cee8027b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &715026109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715026104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c70dd18a6f90e74682b13858cabbe03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterColorSelector: {fileID: 0}
 --- !u!1 &716428103
 GameObject:
   m_ObjectHideFlags: 0
