@@ -5,10 +5,7 @@ public class KeybindManager : MonoBehaviour
     // Start is called before the first frame update
     public GameObject statPanel;
     public GameObject inventoryPanel;
-    void Start()
-    {
-
-    }
+    public GameObject questPanel;
 
     // Update is called once per frame
     void Update()
@@ -22,6 +19,10 @@ public class KeybindManager : MonoBehaviour
         {
             InventoryManager.Instance.ListItems();
             SwitchActive(inventoryPanel);
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            SwitchActive(questPanel);
         }
     }
     private void SwitchActive(GameObject ob)
