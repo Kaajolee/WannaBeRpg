@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98da5d0421eef2e4d91fb57975039f21, type: 3}
-  m_Name: StarterQuest
+  m_Name: Q1Data
   m_EditorClassIdentifier: 
   QuestName: Start your journey!
   QuestDescription: Go grab a weapon and kill 2 enemies
+  QuestReward: {fileID: 11400000, guid: 0fa5a6f3e6968cc458d3e8b8d147194e, type: 2}
   QuestStatus: 0
+  QuestObjectiveType: 0

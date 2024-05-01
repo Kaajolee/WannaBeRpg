@@ -3,50 +3,77 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
-
 public class ConcreteMediator : QuestManagerMediator
 {
+    public ConcreteMediator()
+    {
+        NotStartedQuests = new List<QuestDataScript>();
+        ActiveQuests = new List<QuestDataScript>();
+        CompletedQuests = new List<QuestDataScript>();
+    }
 
-    public override void AddQuest(QuestAbstract quest)
+    public override void AddQuest(QuestDataScript quest)
     {
         NotStartedQuests.Add(quest);
     }
 
-    public override void CompleteQuest(QuestAbstract quest)
+    public override void CompleteQuest(QuestDataScript questData)
     {
-        Quest questToFind = ActiveQuests.Find(q => q.GetQuestName() == quest.GetQuestName()) as Quest;
+        QuestDataScript questToFind = ActiveQuests.Find(q => q.QuestName == questData.QuestName);
         if (questToFind != null)
         {
             ActiveQuests.Remove(questToFind);
-            CompletedQuests.Add(quest);
+            CompletedQuests.Add(questData);
         }
     }
 
-    public override void PrintNotStartedQuests()
+    public override void PrintQuests(QuestStatus questStatus)
     {
-        foreach (var item in NotStartedQuests)
+        switch (questStatus)
         {
-            Console.WriteLine(item.GetQuestName()+ "\n");
+                 //Print not started quests
+            case QuestStatus.NotStarted:
+                PrintList(NotStartedQuests);
+                break;
+
+                //Print InProgress quests
+            case QuestStatus.InProgress:
+                PrintList(ActiveQuests);
+                break;
+
+                //Print completed quests
+            case QuestStatus.Completed:
+                PrintList(CompletedQuests);
+                break;
         }
     }
 
-    public override void RemoveQuest(QuestAbstract quest)
+    public override void RemoveQuest(QuestDataScript quest)
     {
-        Quest questToRemoveNotStarted = NotStartedQuests.Find(q => q.GetQuestName() == quest.GetQuestName()) as Quest;
+        //Remove quest based on its status
+        switch (quest.QuestStatus)
+        {
+            case QuestStatus.NotStarted:
+                NotStartedQuests.Remove(quest);
+                break;
 
-        Quest questToRemoveActive = ActiveQuests.Find(q => q.GetQuestName() == quest.GetQuestName()) as Quest;
+            case QuestStatus.InProgress:
+                ActiveQuests.Remove(quest);
+                break;
 
-        Quest questToRemoveCompleted = CompletedQuests.Find(q => q.GetQuestName() == quest.GetQuestName()) as Quest;
+            case QuestStatus.Completed:
+                CompletedQuests.Remove(quest);
+                break;
+        }
 
-
-        if(questToRemoveNotStarted != null)
-            NotStartedQuests.Remove(questToRemoveNotStarted);
-
-        if (questToRemoveActive != null)
-            ActiveQuests.Remove(questToRemoveNotStarted);
-
-        if (questToRemoveCompleted != null)
-            CompletedQuests.Remove(questToRemoveNotStarted);
+    }
+    void PrintList(List<QuestDataScript> list)
+    {
+        Debug.Log(list[0].QuestStatus.ToString() + " quests\n");
+        foreach (var item in list)
+        {
+            Debug.Log(item.QuestName + "\n");
+        }
     }
 }
 public class Quest : QuestAbstract
@@ -99,13 +126,15 @@ public class TestProgram
     {
         ConcreteMediator mediator = new ConcreteMediator();
 
-        Quest quest1 = new Quest(mediator, "name1", "description1", QuestStatus.NotStarted);
-        Quest quest2 = new Quest(mediator, "name2", "description2", QuestStatus.NotStarted);
+        QuestReward reward = new QuestReward(25, 100);
+
+        QuestDataScript quest1 = new QuestDataScript(mediator, "name1", "description1", reward, QuestStatus.NotStarted, QuestObjectiveType.KillEnemies);
+        QuestDataScript quest2 = new QuestDataScript(mediator, "name2", "description2", reward, QuestStatus.NotStarted, QuestObjectiveType.DeliverItem);
 
         mediator.AddQuest(quest1);
         mediator.AddQuest(quest2);
 
-        mediator.PrintNotStartedQuests();
+        mediator.PrintQuests(QuestStatus.NotStarted);
 
         //rezultatas:
         //name1

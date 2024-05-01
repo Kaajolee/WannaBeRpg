@@ -4,20 +4,13 @@ using UnityEngine;
 
 public abstract class QuestManagerMediator
 {
-    protected List<QuestAbstract> NotStartedQuests { get;  set; }
-    protected List<QuestAbstract> ActiveQuests { get;  set; }
-    protected List<QuestAbstract> CompletedQuests { get;  set; }
-
-    public QuestManagerMediator()
-    {
-        NotStartedQuests = new List<QuestAbstract>();
-        ActiveQuests = new List<QuestAbstract>();
-        CompletedQuests = new List<QuestAbstract>();
-    }
-    public abstract void AddQuest(QuestAbstract quest); 
-    public abstract void RemoveQuest(QuestAbstract quest); 
-    public abstract void CompleteQuest(QuestAbstract quest);
-    public abstract void PrintNotStartedQuests();
+    protected List<QuestDataScript> NotStartedQuests { get;  set; }
+    protected List<QuestDataScript> ActiveQuests { get;  set; } // cia
+    protected List<QuestDataScript> CompletedQuests { get;  set; }
+    public abstract void AddQuest(QuestDataScript quest); 
+    public abstract void RemoveQuest(QuestDataScript quest); 
+    public abstract void CompleteQuest(QuestDataScript quest);
+    public abstract void PrintQuests(QuestStatus questStatus);
 }
 public abstract class QuestAbstract
 {
@@ -40,10 +33,10 @@ public enum QuestStatus
     InProgress,
     Completed
 }
-public enum TaskStatus
+public enum QuestObjectiveType
 {
-    NotStarted,
-    InProgress,
-    Completed
+    KillEnemies,
+    DeliverItem,
+    Destination
 }
 
