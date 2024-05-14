@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,25 +6,17 @@ using UnityEngine;
 public class TaskHolder : MonoBehaviour
 {
     // Start is called before the first frame update
-    public TaskLink checker;
-    void Start()
+    public TaskData taskData;
+    public void UpdateQuest()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void OnDestroy()
-    {
-        if (checker != null)
+        if (taskData != null)
         {
-            if(checker.objectiveType == QuestObjectiveType.KillEnemies)
+            if(taskData.objectiveType == QuestObjectiveType.KillEnemies)
             {
-
+                QuestManager.Instance.QuestStepUpdate(taskData.QuestName, taskData.objectiveType);
             }
         }
+        else
+            Debug.Log("Task data null");
     }
 }

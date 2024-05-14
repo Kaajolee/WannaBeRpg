@@ -15,6 +15,6 @@ MonoBehaviour:
   QuestName: First quest
   QuestDescription: sample text
   QuestReward: {fileID: 11400000, guid: 0fa5a6f3e6968cc458d3e8b8d147194e, type: 2}
-  QuestStatus: 0
+  QuestStatus: 1
   QuestObjectiveType: 0
-  QuestObjectiveCount: 2
+  QuestObjectiveCount: 0

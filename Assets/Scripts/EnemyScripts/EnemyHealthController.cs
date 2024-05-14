@@ -7,6 +7,7 @@ public class EnemyHealthController : MonoBehaviour
     public int health;
     public int maxHealth = 100;
     private EnemyStatController statController;
+    private TaskHolder taskHolder;
     private bool isDead = false;
     public bool isBeingDamaged = false;
 
@@ -14,6 +15,7 @@ public class EnemyHealthController : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        taskHolder = GetComponent<TaskHolder>();
         statController = GetComponent<EnemyStatController>();
     }
 
@@ -37,8 +39,9 @@ public class EnemyHealthController : MonoBehaviour
         {
             isDead = true;
             DissolveController dissolve = GetComponent<DissolveController>();
-            dissolve.StartDissolver();
+            taskHolder.UpdateQuest();
             MoneyController.instance.EnemyKilled(GetComponent<EnemyStatController>().CalculateMoneyDropAmount());
+            dissolve.StartDissolver();
             //Destroy(gameObject);
         }
     }

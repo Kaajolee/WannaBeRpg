@@ -11,6 +11,7 @@ public abstract class Mediator
     public abstract void RemoveQuest(QuestDataScript quest);
     public abstract QuestDataScript FindQuestByName(string questName);
     public abstract void UpdateQuestStepData(string questName, QuestObjectiveType objectiveType);
+    public abstract void PopulateQuestLists(List<QuestDataScript> allQuestList);
     public abstract void CompleteQuest(QuestDataScript quest);
     public abstract void PrintQuests(QuestStatus questStatus);
 }

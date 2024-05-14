@@ -15,7 +15,27 @@ public class ConcreteMediator : Mediator
 
     public override void AddQuest(QuestDataScript quest)
     {
-        NotStartedQuests.Add(quest);
+        switch (quest.QuestStatus)
+        {
+            case QuestStatus.NotStarted:
+                NotStartedQuests.Add(quest);
+                break;
+
+            case QuestStatus.InProgress:
+                ActiveQuests.Add(quest);
+                break;
+
+            case QuestStatus.Completed:
+                CompletedQuests.Add(quest);
+                break;
+        }
+    }
+    public override void PopulateQuestLists(List<QuestDataScript> allQuestList)
+    {
+        foreach (var quest in allQuestList)
+        {
+            AddQuest(quest);
+        }
     }
 
     public override void CompleteQuest(QuestDataScript questData)
@@ -25,6 +45,7 @@ public class ConcreteMediator : Mediator
         {
             ActiveQuests.Remove(questToFind);
             CompletedQuests.Add(questData);
+            Debug.Log($"Quest completed, Name: {questData.QuestName}");
         }
     }
     public override QuestDataScript FindQuestByName(string questName)
@@ -43,8 +64,14 @@ public class ConcreteMediator : Mediator
 
         if(questData.QuestObjectiveType == QuestObjectiveType.KillEnemies)
         {
-            FindQuestByName(questName).QuestObjectiveCount--;
-            Console.WriteLine($"Quest step updated, questName: {questName}");
+            if(questData.QuestObjectiveCount > 0)
+            {
+                FindQuestByName(questName).QuestObjectiveCount--;
+                Debug.Log($"Quest step updated, questName: {questName}");
+
+                if (FindQuestByName(questName).QuestObjectiveCount == 0)
+                    CompleteQuest(questData);
+            }
         }
 
     }
