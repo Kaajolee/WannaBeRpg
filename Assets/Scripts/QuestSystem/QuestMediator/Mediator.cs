@@ -2,20 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class QuestManagerMediator
+public abstract class Mediator
 {
     protected List<QuestDataScript> NotStartedQuests { get;  set; }
     protected List<QuestDataScript> ActiveQuests { get;  set; } // cia
     protected List<QuestDataScript> CompletedQuests { get;  set; }
     public abstract void AddQuest(QuestDataScript quest); 
-    public abstract void RemoveQuest(QuestDataScript quest); 
+    public abstract void RemoveQuest(QuestDataScript quest);
+    public abstract QuestDataScript FindQuestByName(string questName);
+    public abstract void UpdateQuestStepData(string questName, QuestObjectiveType objectiveType);
     public abstract void CompleteQuest(QuestDataScript quest);
     public abstract void PrintQuests(QuestStatus questStatus);
 }
 public abstract class QuestAbstract
 {
-    protected QuestManagerMediator mediator;
-    public QuestAbstract(QuestManagerMediator mediator)
+    protected Mediator mediator;
+    public QuestAbstract(Mediator mediator)
     {
         this.mediator = mediator;
     }

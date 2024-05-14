@@ -11,9 +11,10 @@ public class QuestDataScript : ScriptableObject
     public QuestReward QuestReward;
     public QuestStatus QuestStatus;
     public QuestObjectiveType QuestObjectiveType;
+    public int QuestObjectiveCount;
 
     public QuestDataScript(ConcreteMediator mediator, string questName, string questDescription, QuestReward questReward, 
-                           QuestStatus questStatus, QuestObjectiveType questObjectiveType)
+                           QuestStatus questStatus, QuestObjectiveType questObjectiveType, int questObjectiveCount)
     {
         Mediator = mediator;
         QuestName = questName;
@@ -21,6 +22,7 @@ public class QuestDataScript : ScriptableObject
         QuestReward = questReward;
         QuestStatus = questStatus;
         QuestObjectiveType = questObjectiveType;
+        QuestObjectiveCount = questObjectiveCount;
     }
 
 }

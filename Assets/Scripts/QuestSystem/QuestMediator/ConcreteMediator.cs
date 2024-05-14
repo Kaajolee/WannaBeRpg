@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
-public class ConcreteMediator : QuestManagerMediator
+public class ConcreteMediator : Mediator
 {
     public ConcreteMediator()
     {
@@ -25,6 +26,27 @@ public class ConcreteMediator : QuestManagerMediator
             ActiveQuests.Remove(questToFind);
             CompletedQuests.Add(questData);
         }
+    }
+    public override QuestDataScript FindQuestByName(string questName)
+    {
+        QuestDataScript questToFind = NotStartedQuests
+                        .Concat(ActiveQuests)
+                        .Concat(CompletedQuests)
+                        .FirstOrDefault(q => q.QuestName == questName);
+
+        return questToFind;
+
+    }
+    public override void UpdateQuestStepData(string questName, QuestObjectiveType objectiveType)
+    {
+        QuestDataScript questData = FindQuestByName(questName);
+
+        if(questData.QuestObjectiveType == QuestObjectiveType.KillEnemies)
+        {
+            FindQuestByName(questName).QuestObjectiveCount--;
+            Console.WriteLine($"Quest step updated, questName: {questName}");
+        }
+
     }
 
     public override void PrintQuests(QuestStatus questStatus)
@@ -81,7 +103,7 @@ public class Quest : QuestAbstract
     private string QuestName;
     private string QuestDescription;
     private QuestStatus QuestStatus;
-    public Quest(QuestManagerMediator mediator, string questName, string questDescription, QuestStatus questStatus) : base(mediator)
+    public Quest(Mediator mediator, string questName, string questDescription, QuestStatus questStatus) : base(mediator)
     {
         this.mediator = mediator;
         QuestName = questName;
@@ -128,13 +150,13 @@ public class TestProgram
 
         QuestReward reward = new QuestReward(25, 100);
 
-        QuestDataScript quest1 = new QuestDataScript(mediator, "name1", "description1", reward, QuestStatus.NotStarted, QuestObjectiveType.KillEnemies);
-        QuestDataScript quest2 = new QuestDataScript(mediator, "name2", "description2", reward, QuestStatus.NotStarted, QuestObjectiveType.DeliverItem);
+        //QuestDataScript quest1 = new QuestDataScript(mediator, "name1", "description1", reward, QuestStatus.NotStarted, QuestObjectiveType.KillEnemies);
+        //QuestDataScript quest2 = new QuestDataScript(mediator, "name2", "description2", reward, QuestStatus.NotStarted, QuestObjectiveType.DeliverItem);
 
-        mediator.AddQuest(quest1);
-        mediator.AddQuest(quest2);
+        //mediator.AddQuest(quest1);
+        //mediator.AddQuest(quest2);
 
-        mediator.PrintQuests(QuestStatus.NotStarted);
+        //mediator.PrintQuests(QuestStatus.NotStarted);
 
         //rezultatas:
         //name1
