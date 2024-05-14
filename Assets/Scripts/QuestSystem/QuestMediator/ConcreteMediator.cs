@@ -171,10 +171,11 @@ public class ConcreteMediator : Mediator
                 var questName = obj.transform.Find("QuestName").GetComponent<TextMeshProUGUI>();
                 var buttonPanel = obj.transform.Find("ButtonPanel");
 
-                var declineButton = buttonPanel.transform.Find("DeclineQuestButton");
                 var acceptButton = buttonPanel.transform.Find("AcceptQuestButton");
+                var declineButton = buttonPanel.transform.Find("DeclineQuestButton");
 
-                switch (quest.QuestStatus)
+
+                switch (quest.QuestStatus) // iskelti visa switcha i metoda nes nx atrodo
                 {
                     case QuestStatus.NotStarted:
                         acceptButton.gameObject.SetActive(true);
@@ -195,6 +196,7 @@ public class ConcreteMediator : Mediator
 
                 obj.GetComponent<QuestDataHolder>().questData = quest;
                 obj.GetComponent<QuestDataHolder>().textArea = aboutTextArea;
+
                 questName.text = quest.QuestName;
             }
 
