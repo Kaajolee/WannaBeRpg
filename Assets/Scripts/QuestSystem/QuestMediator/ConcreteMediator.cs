@@ -10,6 +10,7 @@ public class ConcreteMediator : Mediator
 {
     public GameObject QuestItemPrefab;
     public Transform ItemContent;
+    public TextMeshProUGUI aboutTextArea;
     public ConcreteMediator()
     {
         NotStartedQuests = new List<QuestDataScript>();
@@ -40,7 +41,10 @@ public class ConcreteMediator : Mediator
         if (questToFind != null)
         {
             NotStartedQuests.Remove(questToFind);
+
+            quest.QuestStatus = QuestStatus.InProgress;
             ActiveQuests.Add(quest);
+
             Debug.Log($"Quest accepted, Name: {quest.QuestName}");
         }
     }
@@ -58,7 +62,10 @@ public class ConcreteMediator : Mediator
         if (questToFind != null)
         {
             ActiveQuests.Remove(questToFind);
+
+            questData.QuestStatus = QuestStatus.Completed;
             CompletedQuests.Add(questData);
+
             Debug.Log($"Quest completed, Name: {questData.QuestName}");
         }
     }
@@ -162,6 +169,32 @@ public class ConcreteMediator : Mediator
             if(obj != null)
             {
                 var questName = obj.transform.Find("QuestName").GetComponent<TextMeshProUGUI>();
+                var buttonPanel = obj.transform.Find("ButtonPanel");
+
+                var declineButton = buttonPanel.transform.Find("DeclineQuestButton");
+                var acceptButton = buttonPanel.transform.Find("AcceptQuestButton");
+
+                switch (quest.QuestStatus)
+                {
+                    case QuestStatus.NotStarted:
+                        acceptButton.gameObject.SetActive(true);
+                        declineButton.gameObject.SetActive(false);
+                        break;
+
+                    case QuestStatus.InProgress:
+                        acceptButton.gameObject.SetActive(false);
+                        declineButton.gameObject.SetActive(true);
+                        break;
+
+                    case QuestStatus.Completed:
+                        acceptButton.gameObject.SetActive(false);
+                        declineButton.gameObject.SetActive(false);
+                        break;
+                }
+
+
+                obj.GetComponent<QuestDataHolder>().questData = quest;
+                obj.GetComponent<QuestDataHolder>().textArea = aboutTextArea;
                 questName.text = quest.QuestName;
             }
 

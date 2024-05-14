@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
@@ -10,12 +11,14 @@ public class QuestManager : MonoBehaviour
     private ConcreteMediator mediator;
     public GameObject QuestItemPrefab;
     public Transform ItemContent;
+    public GameObject aboutTextArea;
     void Start()
     {
         mediator = new ConcreteMediator();
         mediator.PopulateQuestLists(AllQuestDataList);
         mediator.ItemContent = ItemContent;
         mediator.QuestItemPrefab = QuestItemPrefab;
+        mediator.aboutTextArea = aboutTextArea.GetComponent<TextMeshProUGUI>();
     }
     private void Awake()
     {
@@ -42,5 +45,9 @@ public class QuestManager : MonoBehaviour
     public void CompletedQuestsClicked()
     {
         mediator.ListQuests(QuestStatus.Completed);
+    }
+    public void AcceptQuest(QuestDataScript questData)
+    {
+        mediator.AcceptQuest(questData);
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Q2Reward
   m_EditorClassIdentifier: 
   rewardItem: {fileID: 0}
-  moneyAmount: 0
-  xpAmount: 0
+  moneyAmount: 15
+  xpAmount: 30
