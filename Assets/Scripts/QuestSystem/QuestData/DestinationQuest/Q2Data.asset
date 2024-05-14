@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98da5d0421eef2e4d91fb57975039f21, type: 3}
-  m_Name: Q1Data
+  m_Name: Q2Data
   m_EditorClassIdentifier: 
   Mediator: {fileID: 0}
-  QuestName: First quest
-  QuestDescription: Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  QuestReward: {fileID: 11400000, guid: 0fa5a6f3e6968cc458d3e8b8d147194e, type: 2}
-  QuestStatus: 1
-  QuestObjectiveType: 0
+  QuestName: Second quest
+  QuestDescription: baihjd sg sdcfbghaedghdfazb aahfbadz fhbad fhadfh adfhadfh cdvxsda
+    dhf adfzhvnazdh fdzfhnad fh adzf h adzf hb d h fazdhfaDH
+  QuestReward: {fileID: 11400000, guid: 46da4a7824121b649b2901298fc57bf0, type: 2}
+  QuestStatus: 0
+  QuestObjectiveType: 2
   QuestObjectiveCount: 0

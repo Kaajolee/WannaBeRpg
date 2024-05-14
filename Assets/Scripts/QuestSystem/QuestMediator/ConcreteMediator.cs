@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
 public class ConcreteMediator : Mediator
 {
+    public GameObject QuestItemPrefab;
+    public Transform ItemContent;
     public ConcreteMediator()
     {
         NotStartedQuests = new List<QuestDataScript>();
@@ -28,6 +32,16 @@ public class ConcreteMediator : Mediator
             case QuestStatus.Completed:
                 CompletedQuests.Add(quest);
                 break;
+        }
+    }
+    public override void AcceptQuest(QuestDataScript quest)
+    {
+        QuestDataScript questToFind = NotStartedQuests.Find(q => q.QuestName == quest.QuestName);
+        if (questToFind != null)
+        {
+            NotStartedQuests.Remove(questToFind);
+            ActiveQuests.Add(quest);
+            Debug.Log($"Quest accepted, Name: {quest.QuestName}");
         }
     }
     public override void PopulateQuestLists(List<QuestDataScript> allQuestList)
@@ -57,6 +71,25 @@ public class ConcreteMediator : Mediator
 
         return questToFind;
 
+    }
+    public List<QuestDataScript> FindListByStatus(QuestStatus questStatus)
+    {
+        List<QuestDataScript> list = new List<QuestDataScript>();
+        switch (questStatus)
+        {
+            case QuestStatus.NotStarted:
+                list = NotStartedQuests;
+                break;
+
+            case QuestStatus.InProgress:
+                list = ActiveQuests;
+                break;
+
+            case QuestStatus.Completed:
+                list = CompletedQuests;
+                 break;
+        }
+        return list;
     }
     public override void UpdateQuestStepData(string questName, QuestObjectiveType objectiveType)
     {
@@ -116,12 +149,38 @@ public class ConcreteMediator : Mediator
         }
 
     }
+    public override void ListQuests(QuestStatus questStatus)
+    {
+        CleanUI(ItemContent);
+
+        List<QuestDataScript> questList = FindListByStatus(questStatus);
+
+        foreach (var quest in questList)
+        {
+            GameObject obj = Instantiate(QuestItemPrefab, ItemContent);
+
+            if(obj != null)
+            {
+                var questName = obj.transform.Find("QuestName").GetComponent<TextMeshProUGUI>();
+                questName.text = quest.QuestName;
+            }
+
+        }
+
+    }
     void PrintList(List<QuestDataScript> list)
     {
         Debug.Log(list[0].QuestStatus.ToString() + " quests\n");
         foreach (var item in list)
         {
             Debug.Log(item.QuestName + "\n");
+        }
+    }
+    void CleanUI(Transform itemContent)
+    {
+        foreach (Transform item in itemContent)
+        {
+            Destroy(item.gameObject);
         }
     }
 }
