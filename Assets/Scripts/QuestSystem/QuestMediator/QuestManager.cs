@@ -9,16 +9,23 @@ public class QuestManager : MonoBehaviour
     public static QuestManager Instance { get; private set; }
     public List<QuestDataScript> AllQuestDataList;
     private ConcreteMediator mediator;
-    public GameObject QuestItemPrefab;
     public Transform ItemContent;
+    public Transform ItemContentInProgress;
+
+    public GameObject QuestItemPrefab;
     public GameObject aboutTextArea;
+    public GameObject QuestItemPrefabInProgress;
+
     void Start()
     {
         mediator = new ConcreteMediator();
         mediator.PopulateQuestLists(AllQuestDataList);
-        mediator.ItemContent = ItemContent;
+        mediator.ItemContentLog = ItemContent;
         mediator.QuestItemPrefab = QuestItemPrefab;
         mediator.aboutTextArea = aboutTextArea.GetComponent<TextMeshProUGUI>();
+        mediator.QuestItemPrefabInProgress = QuestItemPrefabInProgress;
+        mediator.ItemContentInProgress = ItemContentInProgress;
+        StartCoroutine(RefreshInPRogressQuests());
     }
     private void Awake()
     {
@@ -28,7 +35,7 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //mediator.ListInProgressQuests();
     }
     public void QuestStepUpdate(string questName, QuestObjectiveType questObjectiveType)
     {
@@ -49,5 +56,13 @@ public class QuestManager : MonoBehaviour
     public void AcceptQuest(QuestDataScript questData)
     {
         mediator.AcceptQuest(questData);
+    }
+    IEnumerator RefreshInPRogressQuests()
+    {
+        while (true)
+        {
+            mediator.ListInProgressQuests();
+            yield return new WaitForSeconds(1);
+        }
     }
 }

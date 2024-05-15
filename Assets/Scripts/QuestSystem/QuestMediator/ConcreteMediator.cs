@@ -6,10 +6,16 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+
+
 public class ConcreteMediator : Mediator
 {
     public GameObject QuestItemPrefab;
-    public Transform ItemContent;
+    public GameObject QuestItemPrefabInProgress;
+
+    public Transform ItemContentLog;
+    public Transform ItemContentInProgress;
+
     public TextMeshProUGUI aboutTextArea;
     public ConcreteMediator()
     {
@@ -158,13 +164,13 @@ public class ConcreteMediator : Mediator
     }
     public override void ListQuests(QuestStatus questStatus)
     {
-        CleanUI(ItemContent);
+        CleanUI(ItemContentLog);
 
         List<QuestDataScript> questList = FindListByStatus(questStatus);
 
         foreach (var quest in questList)
         {
-            GameObject obj = Instantiate(QuestItemPrefab, ItemContent);
+            GameObject obj = Instantiate(QuestItemPrefab, ItemContentLog);
 
             if(obj != null)
             {
@@ -202,6 +208,30 @@ public class ConcreteMediator : Mediator
 
         }
 
+    }
+    public void ListInProgressQuests()
+    {
+        CleanUI(ItemContentInProgress);
+
+        List<QuestDataScript> questList = FindListByStatus(QuestStatus.InProgress);
+
+        int i = 1;
+
+        foreach (var quest in questList)
+        {
+            GameObject obj = Instantiate(QuestItemPrefabInProgress, ItemContentInProgress);
+
+            if (obj != null)
+            {
+                var questName = obj.transform.Find("QuestName").GetComponent<TextMeshProUGUI>();
+                var questIndex = obj.transform.Find("QuestIndex").GetComponent<TextMeshProUGUI>();
+
+                questName.text = quest.QuestName;
+                questIndex.text = $"{i++}.";
+
+            }
+
+        }
     }
     void PrintList(List<QuestDataScript> list)
     {
