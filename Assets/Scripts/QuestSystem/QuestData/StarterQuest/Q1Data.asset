@@ -18,6 +18,6 @@ MonoBehaviour:
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   QuestReward: {fileID: 11400000, guid: 0fa5a6f3e6968cc458d3e8b8d147194e, type: 2}
-  QuestStatus: 1
+  QuestStatus: 2
   QuestObjectiveType: 0
   QuestObjectiveCount: 0

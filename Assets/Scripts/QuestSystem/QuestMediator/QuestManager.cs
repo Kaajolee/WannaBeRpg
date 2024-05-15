@@ -19,12 +19,14 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         mediator = new ConcreteMediator();
+
         mediator.PopulateQuestLists(AllQuestDataList);
         mediator.ItemContentLog = ItemContent;
         mediator.QuestItemPrefab = QuestItemPrefab;
         mediator.aboutTextArea = aboutTextArea.GetComponent<TextMeshProUGUI>();
         mediator.QuestItemPrefabInProgress = QuestItemPrefabInProgress;
         mediator.ItemContentInProgress = ItemContentInProgress;
+
         StartCoroutine(RefreshInPRogressQuests());
     }
     private void Awake()
