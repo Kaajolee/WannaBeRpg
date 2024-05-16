@@ -28,4 +28,13 @@ public class Character
         string colors = $"{hairColor}\n{skinColor}\n{eyesColor}\n{trousersColor}";
         return colors;
     }
+    public CharacterColors SetColorData(CharacterColors dataObject)
+    {
+        dataObject.hairColor = hairColor;
+        dataObject.skinColor = skinColor;
+        dataObject.eyeColor = eyesColor;
+        dataObject.underwearColor = trousersColor;
+
+        return dataObject;
+    }
 }

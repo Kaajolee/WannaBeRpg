@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 7322420167365318671}
   - component: {fileID: 1648775572698400269}
   - component: {fileID: 4751564320795446449}
+  - component: {fileID: 4608545092811095637}
   m_Layer: 7
   m_Name: Player
   m_TagString: player
@@ -520,6 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70d558f03483044ba155d4381426076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freeLookCamera: {fileID: 0}
 --- !u!143 &1145043754959513244
 CharacterController:
   m_ObjectHideFlags: 0
@@ -619,6 +621,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 15
+--- !u!114 &4608545092811095637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897967735444762139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923ac24b34f663e44b92228e9ed96494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorData: {fileID: 11400000, guid: 873fc3c2ab6d6b640b88fe896579e2ae, type: 2}
+  eyeMaterial: {fileID: 2100000, guid: 64b04a6e3187c8247b209aac6c56b9fe, type: 2}
+  skinMaterial: {fileID: 2100000, guid: 95fcf9331ca635c459a201f2c56f44dc, type: 2}
+  underwearMaterial: {fileID: 2100000, guid: fbac7c1722f262145b9ed0c0e940864d, type: 2}
+  hairMaterial: {fileID: 2100000, guid: 0ec77e506658168428e174ef6ddb4abe, type: 2}
 --- !u!1 &903258490501618612
 GameObject:
   m_ObjectHideFlags: 0

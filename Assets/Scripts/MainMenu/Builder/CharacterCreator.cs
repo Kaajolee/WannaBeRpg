@@ -9,6 +9,7 @@ public class CharacterCreator : MonoBehaviour
     private CharacterBuilder characterBuilder;
 
     public CharacterColorSelector characterColorSelector;
+    public CharacterColors colorDataObj;
 
     private void Start()
     {
@@ -39,6 +40,7 @@ public class CharacterCreator : MonoBehaviour
     public void BuildCharacter()
     {
         Character builtChar = characterBuilderBase.Build();
+        colorDataObj = builtChar.SetColorData(colorDataObj);
         Debug.Log("Character built, colors: \n" + builtChar.GetCurrentColors());
         SceneManager.LoadScene("Geimas");
         //return builtChar;
