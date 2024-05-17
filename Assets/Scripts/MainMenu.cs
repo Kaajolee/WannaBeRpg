@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
         camTransScript = Camera.main.GetComponent<CameraTransition>();
         creationTransform = camTransScript.characterCreationPoint;
         mainTransform = camTransScript.MainMenuPoint;
-        //creationTransform = camTransScript.optionsPoint;
+        optionsTransform = camTransScript.optionsPoint;
         //creationTransform = camTransScript.creditsPoint;
 
 
@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
     public void OptionsMenuSelect()
     {
         Debug.Log("Options button pressed");
-        //camTransScript.MoveCameraTo(optionsTransform);
+        camTransScript.MoveCameraTo(optionsTransform);
 
         OptionsPanelGO.SetActive(!OptionsPanelGO.activeSelf);
         MainMenupanelGO.SetActive(!MainMenupanelGO.activeSelf);
@@ -70,6 +70,7 @@ public class MainMenu : MonoBehaviour
             camTransScript.MoveCameraTo(mainTransform);
             enabled.SetActive(!enabled.activeSelf);
             MainMenupanelGO.SetActive(!MainMenupanelGO.activeSelf);
+            camTransScript.MoveCameraTo(mainTransform);
         }
 
     }
