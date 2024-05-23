@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 
 public class MainMenu : MonoBehaviour
 {
+    public static MainMenu instance { get; private set; }
+
     public GameObject OptionsPanelGO;
     public GameObject CreditsPanelGO;
     public GameObject CreationpanelGO;
@@ -21,6 +23,8 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
+
         OptionsPanelGO.SetActive(false);
         CreditsPanelGO.SetActive(false);
 
@@ -67,7 +71,6 @@ public class MainMenu : MonoBehaviour
         {
             Debug.Log("Back button pressed");
 
-            camTransScript.MoveCameraTo(mainTransform);
             enabled.SetActive(!enabled.activeSelf);
             MainMenupanelGO.SetActive(!MainMenupanelGO.activeSelf);
             camTransScript.MoveCameraTo(mainTransform);
