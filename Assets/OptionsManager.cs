@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -15,16 +16,16 @@ public class OptionsManager : MonoBehaviour
 
     public AudioMixer audioMixer;
 
-    Dropdown resDropDown;
-    Dropdown screenTypeDropDown;
+    TMP_Dropdown resDropDown;
+    TMP_Dropdown screenTypeDropDown;
 
     int width;
     int height;
 
     void Start()
     {
-        resDropDown = resDropDownGO.GetComponent<Dropdown>();
-        screenTypeDropDown = screenTypeDropDownGO.GetComponent<Dropdown>();
+        resDropDown = resDropDownGO.GetComponent<TMP_Dropdown>();
+        screenTypeDropDown = screenTypeDropDownGO.GetComponent<TMP_Dropdown>();
 
         width = 1920;
         height = 1080;
@@ -48,7 +49,7 @@ public class OptionsManager : MonoBehaviour
     }
         
     void ApplyResolution()
-    {
+    { 
         switch (resDropDown.value)
         {
             case 0:
@@ -66,6 +67,7 @@ public class OptionsManager : MonoBehaviour
 
         }
         Screen.SetResolution(width, height, Screen.fullScreen);
+        Debug.Log($"Resolution set to {width}x{height}");
     }
     void ApplyScreenType()
     {
@@ -73,14 +75,19 @@ public class OptionsManager : MonoBehaviour
         {
             case 0:
                 Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+                Debug.Log($"ScreenType set to FullScreenWindow");
                 break;
             case 1:
                 Screen.fullScreenMode = FullScreenMode.Windowed;
+                Debug.Log($"ScreenType set to Windowed");
                 break;
         }
     }
     void ApplySound() 
     {
-        audioMixer.SetFloat("MasterVolume", Mathf.Log10(masterVolumeSlider.value) * 20);
+        float volumeDb = Mathf.Log10(masterVolumeSlider.value) * 20;
+        audioMixer.SetFloat("Volume", volumeDb);
+        Debug.Log($"Volume set to: {volumeDb}DB");
+
     }
 }
