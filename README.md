@@ -165,12 +165,12 @@ The features that are planned, in progress or completed.
 
 ## :crown: Creators
 
-<table style="width: 100%; text-align: center;">
-  <tr>
-    <td style="text-align: center; vertical-align: middle;">
+<table>
+    <tr>
+    <td align="center">
       <img src="https://github.com/Kaajolee.png" width="200px;" alt="Karolis Latoža"/><br />
       <sub><b>Karolis Latoža</b></sub><br />
       Game design, development and implementation.
     </td>
-  </tr>
+    </tr>
 </table>
