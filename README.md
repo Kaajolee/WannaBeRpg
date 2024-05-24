@@ -83,4 +83,4 @@ The controls in game are fairly standard and simple.
 
 Once you got the controls mastered feel free to explore the world and upgrade your character.
 
-## :map: Feature roadmap
+## :world_map: Feature roadmap
