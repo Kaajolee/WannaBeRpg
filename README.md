@@ -9,9 +9,7 @@
 This project consists of an RPG type singleplayer video game i am making. The whole idea came from me liking and playing a lot of different RPG games like World of Warcraft, OldSchool Runescape.
 The project itself is in early stages of development, but early means there is a ton of stuff to come in the future!
 
-## :wrench: What can the game offer you?
-
-### Functionality
+## :wrench: Functionality
 
 WannaBeRpg is a low poly game, so it can run on a lot of systems!
 Also, the game offers
@@ -23,3 +21,18 @@ Also, the game offers
 
 > [!NOTE]
 > Some features may still be in development or not implemented at all.
+
+## :question_mark: How to play?
+
+The controls are fairly simple.
+The game only supports mouse and keyboard.
+
+- ***Character movement***
+    - W - Move forward
+    - S - Move backwards
+    - A - Move left
+    - D - Move right
+    - Spacebar - jump
+
+- ***Keybinds***
+    - las
