@@ -119,6 +119,11 @@ The features that are planned, in progress or completed.
     - **Priority** High
     - **Description** Implement various enemy types with visuals and different logic.
 
+- **Map expansion**
+    - **Status:** In progress
+    - **Priority** High
+    - **Description** Expand the map.
+
 ### Long-term goals to acomplish
 
 - **Improved documentation**
@@ -134,7 +139,7 @@ The features that are planned, in progress or completed.
 - **Highscores and a leaderboard**
     - **Status:** Planned
     - **Priority** Low
-    - **Description** Create a way for people to show off their progress
+    - **Description** Create a way for people to show off their progress.
 
 ### Completed goals
 
