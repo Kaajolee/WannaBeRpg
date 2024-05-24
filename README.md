@@ -1,5 +1,9 @@
 # WannaBeRpg
 
+<p align="center">
+  <img src="https://github.com/Kaajolee/WannaBeRpg/tree/main/Png" />
+</p>
+
 ## :book: About
 
 This project consists of an RPG type singleplayer video game i am making. The whole idea came from me liking and playing a lot of different RPG games like World of Warcraft, OldSchool Runescape.
