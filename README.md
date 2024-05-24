@@ -163,7 +163,7 @@ The features that are planned, in progress or completed.
     - **Priority** Medium
     - **Description** Create a main menu.
 
-## :crown: Creators
+## :prince: Creators
 
 <table>
   <tr>
@@ -177,3 +177,25 @@ The features that are planned, in progress or completed.
     </td>
   </tr>
 </table>
+
+## :busts_in_silhouette: Share this repo with your friends!
+
+If you liked the project, feel free to share with your friends!
+
+<div align="center">
+  <a href="https://twitter.com/intent/tweet?url=https://github.com/Kaajolee/WannaBeRpg&text=Check%20out%20this%20awesome%20project%20on%20GitHub!%20🚀%20%23GitHub%20%23OpenSource" style="background-color: red; padding: 5px; border-radius: 5px; margin-right: 5px;">
+    <img src="https://img.shields.io/twitter/url/https/github.com/yourusername/yourrepository.svg?style=social" alt="Share on Twitter">
+  </a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/Kaajolee/WannaBeRpg" style="background-color: red; padding: 5px; border-radius: 5px; margin-right: 5px;">
+    <img src="https://img.shields.io/badge/share-on%20facebook-white" alt="Share on Facebook">
+  </a>
+  <a href="https://www.linkedin.com/shareArticle?url=https://github.com/Kaajolee/WannaBeRpg&title=Check%20out%20this%20awesome%20project%20on%20GitHub!%20🚀%20%23GitHub%20%23OpenSource" style="background-color: red; padding: 5px; border-radius: 5px; margin-right: 5px;">
+    <img src="https://img.shields.io/badge/share-on%20linkedin-white" alt="Share on LinkedIn">
+  </a>
+  <a href="mailto:?subject=Check%20out%20this%20awesome%20project%20on%20GitHub!&body=Hey%20there,%20I%20thought%20you%20might%20be%20interested%20in%20this%20awesome%20project%20on%20GitHub:%20https://github.com/Kaajolee/WannaBeRpg" style="background-color: red; padding: 5px; border-radius: 5px; margin-right: 5px;">
+    <img src="https://img.shields.io/badge/share-by%20email-white" alt="Share via Email">
+  </a>
+  <a href="https://www.reddit.com/submit?url=https://github.com/Kaajolee/WannaBeRpg&title=Check%20out%20this%20awesome%20project%20on%20GitHub!%20🚀%20%23GitHub%20%23OpenSource" style="background-color: red; padding: 5px; border-radius: 5px;">
+    <img src="https://img.shields.io/badge/share-on%20reddit-white" alt="Share on Reddit">
+  </a>
+</div>
