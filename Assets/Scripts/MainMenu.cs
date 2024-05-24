@@ -24,9 +24,10 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         instance = this;
-
+        MainMenupanelGO.SetActive(true);
         OptionsPanelGO.SetActive(false);
         CreditsPanelGO.SetActive(false);
+        CreationpanelGO.SetActive(false);
 
         camTransScript = Camera.main.GetComponent<CameraTransition>();
         creationTransform = camTransScript.characterCreationPoint;
