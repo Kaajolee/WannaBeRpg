@@ -84,3 +84,76 @@ The controls in game are fairly standard and simple.
 Once you got the controls mastered feel free to explore the world and upgrade your character.
 
 ## :world_map: Feature roadmap
+
+The features that are planned, in progress or completed.
+
+### Upcoming features and improvements
+
+- **Shop system**
+    - **Status:** Planned
+    - **Priority** Medium
+    - **Description** Create a way for the player to sell and buy items.
+
+- **Enemy drop an item on death**
+    - **Status:** Planned
+    - **Priority** Medium
+    - **Description** Make it so that an enemy drops an item on death.
+
+- **Optimization**
+    - **Status:** In progress
+    - **Priority** High
+    - **Description** Optimize the entire game.
+
+- **Cutscenes**
+    - **Status:** Planned
+    - **Priority** Low
+    - **Description** Create cutscenes for the game.
+
+- **Narrator**
+    - **Status:** Planned
+    - **Priority** Low
+    - **Description** Implement a narrator in the game.
+
+- **Various enemy types**
+    - **Status:** In progress
+    - **Priority** High
+    - **Description** Implement various enemy types with visuals and different logic.
+
+### Long-term goals to acomplish
+
+- **Improved documentation**
+    - **Status:** In Progress
+    - **Priority** Low
+    - **Description** Document every single ppart of the game.
+
+- **CO-OP mode**
+    - **Status:** Planned
+    - **Priority** Low
+    - **Description** Implement a way for friends to play together.
+
+- **Highscores and a leaderboard**
+    - **Status:** Planned
+    - **Priority** Low
+    - **Description** Create a way for people to show off their progress
+
+### Completed goals
+
+- **Quest system**
+    - **Status:** Completed
+    - **Priority** High
+    - **Description** Design and implement a dynamic quest system to use in the game.
+
+- **Inventory system**
+    - **Status:** Completed
+    - **Priority** High
+    - **Description** Implement an inventory system.
+
+- **Dynamic attack damage based on stats**
+    - **Status:** Completed
+    - **Priority** Medium
+    - **Description** Make it so that the players damage is scaling with his characters stats.
+
+- **Main menu**
+    - **Status:** Completed
+    - **Priority** Medium
+    - **Description** Create a main menu.
