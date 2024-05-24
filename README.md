@@ -13,5 +13,9 @@ WannaBeRpg is a low poly game, so it can run on a lot of systems!
 Also, the game offers
 - Stats and various weapons to kill your enemies.
 - Interesting quests and tasks for you to complete.
-- Cool music soundtract to listen to.
+- Various types of enemies for you to kill.
+- Cool music soundtrack to listen to.
 - Beautiful map for you to explore.
+
+> [!NOTE]
+> Some features may still be in development or not implemented at all.
