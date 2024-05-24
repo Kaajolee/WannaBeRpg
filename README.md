@@ -1,7 +1,7 @@
 # WannaBeRpg
 
 <p align="center">
-  <img src="https://github.com/Kaajolee/WannaBeRpg/tree/main/Png" />
+  <img src="https://github.com/Kaajolee/WannaBeRpg/tree/main/Png"/>
 </p>
 
 ## :book: About
