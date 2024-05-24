@@ -73,6 +73,7 @@ The controls in game are fairly standard and simple.
 - **Keybinds**
     - **P** - Open performace panel
     - **K** - Enable mouse
+    - **L** - Pause game, to unpause press **L** again
     - **N** - Open quest panel
     - **C** - Open stats panel
     - **1 2 3** - switch between attack types

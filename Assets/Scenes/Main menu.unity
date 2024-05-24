@@ -525,7 +525,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.4528302, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.5377358, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.2784314, g: 0, b: 0, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.2784314, g: 0, b: 0, a: 0.48235294}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -8115,6 +8115,9 @@ MonoBehaviour:
   sfxVolumeSlider: {fileID: 1178609266}
   resDropDownGO: {fileID: 1863942337}
   screenTypeDropDownGO: {fileID: 148502920}
+  vSynctoggle: {fileID: 1764632035}
+  maxFpsToggle: {fileID: 30122676}
+  maxFpsInputField: {fileID: 1621712303}
   audioMixer: {fileID: 24100000, guid: c80a8ffff6ac8314484bd42491832787, type: 2}
 --- !u!4 &1021511670
 Transform:
@@ -12405,7 +12408,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.38679248, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.5, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.2784314, g: 0, b: 0, a: 1}
-    m_DisabledColor: {r: 0.2784314, g: 0, b: 0, a: 0.5019608}
+    m_DisabledColor: {r: 0.2784314, g: 0, b: 0, a: 0.45882353}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -13156,7 +13159,7 @@ GameObject:
   - component: {fileID: 1764632034}
   - component: {fileID: 1764632035}
   m_Layer: 5
-  m_Name: MaxFpsToggle
+  m_Name: VSyncToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13228,7 +13231,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1021511669}
+        m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
+        m_MethodName: ToggleMaxFpsElements
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1778406221
 GameObject:

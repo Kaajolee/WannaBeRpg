@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class OptionsManager : MonoBehaviour
 {
@@ -13,6 +13,11 @@ public class OptionsManager : MonoBehaviour
 
     public GameObject resDropDownGO;
     public GameObject screenTypeDropDownGO;
+
+    public Toggle vSynctoggle;
+    public Toggle maxFpsToggle;
+
+    public TMP_InputField maxFpsInputField;
 
     public AudioMixer audioMixer;
 
@@ -34,22 +39,23 @@ public class OptionsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void ApplySettings()
     {
         ApplyResolution();
         ApplyScreenType();
         ApplySound();
+        ApplyMaxFps();
         MainMenu.instance.BackButtonSelect();
     }
     public void BackButtonPressed()
     {
         MainMenu.instance.BackButtonSelect();
     }
-        
+
     void ApplyResolution()
-    { 
+    {
         switch (resDropDown.value)
         {
             case 0:
@@ -83,11 +89,55 @@ public class OptionsManager : MonoBehaviour
                 break;
         }
     }
-    void ApplySound() 
+    void ApplySound()
     {
         float volumeDb = Mathf.Log10(masterVolumeSlider.value) * 20;
         audioMixer.SetFloat("Volume", volumeDb);
         Debug.Log($"Volume set to: {volumeDb}DB");
+
+    }
+    void ApplyVSync()
+    {
+        if (vSynctoggle.isOn)
+        {
+            QualitySettings.vSyncCount = 1;
+
+        }
+        else
+        {
+            QualitySettings.vSyncCount = 0;
+
+        }
+
+
+
+    }
+    public void ToggleMaxFpsElements()
+    {
+        maxFpsToggle.enabled = !maxFpsToggle.enabled;
+        maxFpsInputField.enabled = !maxFpsInputField.enabled;
+    }
+    void ApplyMaxFps()
+    {
+        if (maxFpsToggle.isOn)
+        {
+            try
+            {
+                int value = int.Parse(maxFpsInputField.text);
+                Application.targetFrameRate = value;
+                Debug.Log($"FPS set to: {value}");
+            }
+            catch (FormatException e)
+            {
+                Debug.LogError(e.Message);
+                Debug.Log("Error parsing input");
+                Application.targetFrameRate = 60;
+            }
+
+
+        }
+        else
+            Application.targetFrameRate = Application.targetFrameRate;
 
     }
 }
