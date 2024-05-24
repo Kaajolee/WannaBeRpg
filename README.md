@@ -181,9 +181,9 @@ The features that are planned, in progress or completed.
 ## :busts_in_silhouette: Share this repo with your friends!
 
 If you liked the project, feel free to share with your friends!
-
-
-
+ 
+ 
+ 
 <div align="center">
   <a href="https://twitter.com/intent/tweet?url=https://github.com/Kaajolee/WannaBeRpg&text=Check%20out%20this%20awesome%20project%20on%20GitHub!%20🚀%20%23GitHub%20%23OpenSource" style="background-color: red; padding: 5px; border-radius: 5px; margin-right: 5px;">
     <img src="https://img.shields.io/twitter/url/https/github.com/yourusername/yourrepository.svg?style=social" alt="Share on Twitter">
