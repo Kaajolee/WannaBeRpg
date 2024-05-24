@@ -30,16 +30,16 @@ Once you installed the game you will be booted in to the main menu.
 
 **Main menu options**
 
-- Start New Game - move to character creation screen.
-- Options - adjust various visual and audio settings.
+- **Start New Game** - move to character creation screen.
+- **Options** - adjust various visual and audio settings.
     - Change game resolution.
     - Adjust screen type.
     - Enable/Disable VSync.
     - Set framerate limit.
     - Change master, music and sfx volumes.
-- Load Game - load the previous **saved** session.
-- Credits - view Credits.
-- Exit - exit the application.
+- **Load Game** - load the previous **saved** session.
+- **Credits** - view Credits.
+- **Exit** - exit the application.
 
 By pressing *Start New Game* you will be switched to the character creation screen.
 
@@ -64,18 +64,18 @@ The controls in game are fairly standard and simple.
 > The game only supports mouse and keyboard.
 
 - **Character movement**
-    - W - Move forward
-    - S - Move backwards
-    - A - Move left
-    - D - Move right
-    - Spacebar - jump
+    - **W** - Move forward
+    - **S** - Move backwards
+    - **A** - Move left
+    - **D** - Move right
+    - **Spacebar** - jump
 
 - **Keybinds**
-    - P - Open performace panel
-    - K - Enable mouse
-    - N - Open quest panel
-    - C - Open stats panel
-    - 1 2 3 - switch between attack types
+    - **P** - Open performace panel
+    - **K** - Enable mouse
+    - **N** - Open quest panel
+    - **C** - Open stats panel
+    - **1 2 3** - switch between attack types
 
 > [!TIP]
 > To interact with an object, enable mouse and click on it (only works on items)
