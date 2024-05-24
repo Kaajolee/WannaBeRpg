@@ -24,15 +24,27 @@ Also, the game offers
 
 ## :question_mark: How to play?
 
-The controls are fairly simple.
-The game only supports mouse and keyboard.
+Once you installed the game you will be booted in to the main menu.
+By pressing *Start New Game* you will be switched to the character creation screen,
+after that just press *Create* and you will be put in to the game.
 
-- ***Character movement***
+The controls are fairly simple.
+
+> [!IMPORTANT]
+> The game only supports mouse and keyboard.
+
+
+- **Character movement**
     - W - Move forward
     - S - Move backwards
     - A - Move left
     - D - Move right
     - Spacebar - jump
 
-- ***Keybinds***
-    - las
+- **Keybinds**
+    - P - Open performace panel
+    - K - Enable mouse
+    - N - Open quest panel
+    - C - Open stats panel
+    - 
+
