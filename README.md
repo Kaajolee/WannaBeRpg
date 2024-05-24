@@ -11,6 +11,7 @@ The project itself is in early stages of development, but early means there is a
 
 WannaBeRpg is a low poly game, so it can run on a lot of systems!
 Also, the game offers
-- Stats and various weapons to kill your enemies
-- Interesting quests and tasks for you to complete
--  
+- Stats and various weapons to kill your enemies.
+- Interesting quests and tasks for you to complete.
+- Cool music soundtract to listen to.
+- Beautiful map for you to explore.
