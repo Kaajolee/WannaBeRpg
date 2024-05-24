@@ -28,23 +28,40 @@ Also, the game offers
 
 Once you installed the game you will be booted in to the main menu.
 
-**The main menu options**
+**Main menu options**
 
 - Start New Game - move to character creation screen.
 - Options - adjust various visual and audio settings.
+    - Change game resolution.
+    - Adjust screen type.
+    - Enable/Disable VSync.
+    - Set framerate limit.
+    - Change master, music and sfx volumes.
 - Load Game - load the previous **saved** session.
+- Credits - view Credits.
+- Exit - exit the application.
 
-By pressing *Start New Game* you will be switched to the character creation screen,
-after that just press *Create* and you will be put in to the game.
+By pressing *Start New Game* you will be switched to the character creation screen.
 
-The controls are fairly simple.
+**Character creation menu**
+
+To change the colors of the specified items, click the left or right pointing arrows.
+
+**Character creation**
+
+- Hair color
+- Skin color
+- Eye color
+- Trousers color
+
+Once you have the character you like, press *Create* to jump straight in to the game.
+
+### In game
+
+The controls in game are fairly standard and simple.
 
 > [!IMPORTANT]
 > The game only supports mouse and keyboard.
-
-
-
-### In game
 
 - **Character movement**
     - W - Move forward
