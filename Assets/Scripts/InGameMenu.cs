@@ -17,7 +17,7 @@ public class InGameMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             GamePaused();
             Cursor.visible = !Cursor.visible;
@@ -33,6 +33,8 @@ public class InGameMenu : MonoBehaviour
     public void QuitButtonPressed()
     {
         Time.timeScale = 1f;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadSceneAsync(0);
     }
     public void OptionsButtonPressed()
