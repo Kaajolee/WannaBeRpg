@@ -3,38 +3,37 @@ using UnityEngine;
 
 public class CursorLock : MonoBehaviour
 {
-    private bool isLocked = true;
+    public bool isMouseHeldDown = true;
     public CinemachineFreeLook freeLookCamera;
     void Start()
     {
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        freeLookCamera.m_XAxis.m_InputAxisName = "";
+        freeLookCamera.m_YAxis.m_InputAxisName = "";
 
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetMouseButtonDown(1))
         {
-            ToggleCursorLock();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            freeLookCamera.m_XAxis.m_InputAxisName = "Mouse X";
+            freeLookCamera.m_YAxis.m_InputAxisName = "Mouse Y";
         }
-    }
-    private void ToggleCursorLock()
-    {
-        if (isLocked)
+
+        if(Input.GetMouseButtonUp(1))
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
             freeLookCamera.m_XAxis.m_InputAxisName = "";
             freeLookCamera.m_YAxis.m_InputAxisName = "";
+            freeLookCamera.m_XAxis.m_InputAxisValue = 0f;
+            freeLookCamera.m_YAxis.m_InputAxisValue = 0f;
         }
-        else if(isLocked == false)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            freeLookCamera.m_XAxis.m_InputAxisName = "x";
-            freeLookCamera.m_YAxis.m_InputAxisName = "y";
-        }
+
     }
 }
