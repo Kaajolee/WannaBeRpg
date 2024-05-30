@@ -522,6 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70d558f03483044ba155d4381426076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMouseHeldDown: 1
   freeLookCamera: {fileID: 0}
 --- !u!143 &1145043754959513244
 CharacterController:
