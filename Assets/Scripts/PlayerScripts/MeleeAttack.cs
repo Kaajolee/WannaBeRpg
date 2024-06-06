@@ -37,13 +37,18 @@ public class MeleeAttack : MonoBehaviour
             Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
             foreach (Collider enemy in hitEnemies)
             {
-                EnemyHealthController enemyhealth = enemy.gameObject.GetComponent<EnemyHealthController>();
-                CalculateCritAndPopUp(enemyhealth);
+                if(enemy.gameObject.tag == "enemy")
+                {
+                    EnemyHealthController enemyhealth = enemy.gameObject.GetComponent<EnemyHealthController>();
+                    CalculateCritAndPopUp(enemyhealth);
+                    PlayAccordingMeleeAnimation();
+                }
+
                 //Debug.Log("Melee attack hit, name: " + enemy.name);
                 //Debug.Log("Enemy level: " + enemy.GetComponent<EnemyStatController>().enemyLevel);
 
             }
-            PlayAccordingMeleeAnimation();
+            
         
     }
     void CalculateCritAndPopUp(EnemyHealthController enemyhealth)
