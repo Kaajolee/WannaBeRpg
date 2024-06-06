@@ -12,6 +12,8 @@ public class QuestManager : MonoBehaviour
     public Transform ItemContent;
     public Transform ItemContentInProgress;
 
+    public TextMeshProUGUI completedCountLabel;
+
     public GameObject QuestItemPrefab;
     public GameObject aboutTextArea;
     public GameObject QuestItemPrefabInProgress;
@@ -27,7 +29,7 @@ public class QuestManager : MonoBehaviour
         mediator.QuestItemPrefabInProgress = QuestItemPrefabInProgress;
         mediator.ItemContentInProgress = ItemContentInProgress;
 
-        StartCoroutine(RefreshInPRogressQuests());
+        StartCoroutine(RefreshInProgressQuests());
     }
     private void Awake()
     {
@@ -55,11 +57,15 @@ public class QuestManager : MonoBehaviour
     {
         mediator.ListQuests(QuestStatus.Completed);
     }
+    public void UpdateCountLabel()
+    {
+        mediator.UpdateCompletedQuestLabel(completedCountLabel);
+    }
     public void AcceptQuest(QuestDataScript questData)
     {
         mediator.AcceptQuest(questData);
     }
-    IEnumerator RefreshInPRogressQuests()
+    IEnumerator RefreshInProgressQuests()
     {
         while (true)
         {

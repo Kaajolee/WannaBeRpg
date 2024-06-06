@@ -248,4 +248,14 @@ public class ConcreteMediator : Mediator
             Destroy(item.gameObject);
         }
     }
+    int CalculateTotalQuests()
+    {
+        int total = 0;
+        total = ActiveQuests.Count + CompletedQuests.Count + NotStartedQuests.Count;
+        return total;
+    }
+    public void UpdateCompletedQuestLabel(TextMeshProUGUI completedCountLabel)
+    {
+        completedCountLabel.text = $"Completed Quests {CompletedQuests.Count}/{CalculateTotalQuests()}";
+    }
 }
