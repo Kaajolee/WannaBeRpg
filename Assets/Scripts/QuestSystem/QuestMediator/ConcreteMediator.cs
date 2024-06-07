@@ -162,49 +162,15 @@ public class ConcreteMediator : Mediator
         }
 
     }
-    public override void ListQuests(QuestStatus questStatus)
+    public override void ListQuests(Transform whereTo, List<QuestDataScript> questList)
     {
-        CleanUI(ItemContentLog);
-
-        List<QuestDataScript> questList = FindListByStatus(questStatus);
+        CleanUI(whereTo);
 
         foreach (var quest in questList)
         {
-            GameObject obj = Instantiate(QuestItemPrefab, ItemContentLog);
+            GameObject obj = Instantiate(QuestItemPrefab, whereTo);
 
-            if(obj != null)
-            {
-                var questName = obj.transform.Find("QuestName").GetComponent<TextMeshProUGUI>();
-                var buttonPanel = obj.transform.Find("ButtonPanel");
-
-                var acceptButton = buttonPanel.transform.Find("AcceptQuestButton");
-                var declineButton = buttonPanel.transform.Find("DeclineQuestButton");
-
-
-                switch (quest.QuestStatus) // iskelti visa switcha i metoda nes nx atrodo
-                {
-                    case QuestStatus.NotStarted:
-                        acceptButton.gameObject.SetActive(true);
-                        declineButton.gameObject.SetActive(false);
-                        break;
-
-                    case QuestStatus.InProgress:
-                        acceptButton.gameObject.SetActive(false);
-                        declineButton.gameObject.SetActive(true);
-                        break;
-
-                    case QuestStatus.Completed:
-                        acceptButton.gameObject.SetActive(false);
-                        declineButton.gameObject.SetActive(false);
-                        break;
-                }
-
-
-                obj.GetComponent<QuestDataHolder>().questData = quest;
-                obj.GetComponent<QuestDataHolder>().textArea = aboutTextArea;
-
-                questName.text = quest.QuestName;
-            }
+            EditQuestGameObject(obj, quest);
 
         }
 
@@ -257,5 +223,59 @@ public class ConcreteMediator : Mediator
     public void UpdateCompletedQuestLabel(TextMeshProUGUI completedCountLabel)
     {
         completedCountLabel.text = $"Completed Quests {CompletedQuests.Count}/{CalculateTotalQuests()}";
+    }
+    void ToggleButtons(QuestStatus questStatus, Transform acceptButton, Transform declineButton)
+    {
+        switch (questStatus)
+        {
+            case QuestStatus.NotStarted:
+                acceptButton.gameObject.SetActive(true);
+                declineButton.gameObject.SetActive(false);
+                break;
+
+            case QuestStatus.InProgress:
+                acceptButton.gameObject.SetActive(false);
+                declineButton.gameObject.SetActive(true);
+                break;
+
+            case QuestStatus.Completed:
+                acceptButton.gameObject.SetActive(false);
+                declineButton.gameObject.SetActive(false);
+                break;
+        }
+    }
+    void EditQuestGameObject(GameObject instantiatedObj, QuestDataScript questData)
+    {
+        if (instantiatedObj != null)
+        {
+            var questName = instantiatedObj.transform.Find("QuestName").GetComponent<TextMeshProUGUI>();
+            var buttonPanel = instantiatedObj.transform.Find("ButtonPanel");
+
+            var acceptButton = buttonPanel.transform.Find("AcceptQuestButton");
+            var declineButton = buttonPanel.transform.Find("DeclineQuestButton");
+
+
+            ToggleButtons(questData.QuestStatus, acceptButton, declineButton);
+
+
+            instantiatedObj.GetComponent<QuestDataHolder>().questData = questData;
+            instantiatedObj.GetComponent<QuestDataHolder>().textArea = aboutTextArea;
+
+            questName.text = questData.QuestName;
+        }
+    }
+    public List<QuestDataScript> GetListByStatus(QuestStatus questStatus)
+    {
+        List<QuestDataScript> questDataList = new List<QuestDataScript>();
+        switch (questStatus)
+        {
+            case QuestStatus.NotStarted:
+                return NotStartedQuests;
+            case QuestStatus.InProgress:
+                return ActiveQuests;
+            case QuestStatus.Completed:
+                return CompletedQuests;
+        }
+        return questDataList;
     }
 }

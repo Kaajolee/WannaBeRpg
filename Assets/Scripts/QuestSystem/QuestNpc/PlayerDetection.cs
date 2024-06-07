@@ -14,6 +14,8 @@ public class PlayerDetection : MonoBehaviour
 
     PanelToggle questGiverPanelToggle;
 
+    QuestGiverLogic giverLogic;
+
     void Start()
     {
         isPlayerInRange = false;
@@ -25,6 +27,7 @@ public class PlayerDetection : MonoBehaviour
         }
 
         questGiverPanelToggle = GetComponent<PanelToggle>();
+        giverLogic = GetComponent<QuestGiverLogic>();
     }
 
     // Update is called once per frame
@@ -36,8 +39,9 @@ public class PlayerDetection : MonoBehaviour
     }
     private void OnMouseDown()
     {
-       Debug.Log($"[{transform.gameObject.name}] - player clicked the collider");
-       questGiverPanelToggle.TogglePanel();
+        Debug.Log($"[{transform.gameObject.name}] - player clicked the collider");
+        questGiverPanelToggle.TogglePanel();
+        giverLogic.ListQuestsToContent();
     }
     private void OnMouseEnter()
     {

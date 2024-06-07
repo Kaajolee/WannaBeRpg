@@ -10,7 +10,7 @@ public abstract class Mediator : MonoBehaviour
     public abstract void AddQuest(QuestDataScript quest); 
     public abstract void AcceptQuest(QuestDataScript quest); 
     public abstract void RemoveQuest(QuestDataScript quest);
-    public abstract void ListQuests(QuestStatus questStatus);
+    public abstract void ListQuests(Transform whereTo, List<QuestDataScript> questDataList);
     public abstract QuestDataScript FindQuestByName(string questName);
     public abstract void UpdateQuestStepData(string questName, QuestObjectiveType objectiveType);
     public abstract void PopulateQuestLists(List<QuestDataScript> allQuestList);

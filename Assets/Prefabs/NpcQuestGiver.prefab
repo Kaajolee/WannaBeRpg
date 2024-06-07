@@ -958,9 +958,10 @@ GameObject:
   - component: {fileID: 909081901474114736}
   - component: {fileID: 1124753482741913782}
   - component: {fileID: 5479488821620549429}
+  - component: {fileID: 2672629828858929481}
   m_Layer: 3
   m_Name: NpcQuestGiver
-  m_TagString: enemy
+  m_TagString: npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1055,6 +1056,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questGiverPanel: {fileID: 0}
+--- !u!114 &2672629828858929481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782702501690864755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216d5460d93d9ac4a80b593aa141cb52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notStartedContentGO: {fileID: 0}
+  inProgressContentGO: {fileID: 0}
+  questDisplayPrefab: {fileID: 0}
+  notStartedQuestDataList: []
+  inProgressQuestDataList: []
 --- !u!1 &1789272960074739661
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class QuestManager : MonoBehaviour
     // Start is called before the first frame update
     public static QuestManager Instance { get; private set; }
     public List<QuestDataScript> AllQuestDataList;
-    private ConcreteMediator mediator;
+    public ConcreteMediator mediator;
     public Transform ItemContent;
     public Transform ItemContentInProgress;
 
@@ -47,15 +47,15 @@ public class QuestManager : MonoBehaviour
     }
     public void ActiveQuestsClicked()
     {
-        mediator.ListQuests(QuestStatus.InProgress);
+        mediator.ListQuests(ItemContent, mediator.GetListByStatus(QuestStatus.InProgress));
     }
     public void NotStartedQuestsClicked()
     {
-        mediator.ListQuests(QuestStatus.NotStarted);
+        mediator.ListQuests(ItemContent, mediator.GetListByStatus(QuestStatus.NotStarted));
     }
     public void CompletedQuestsClicked()
     {
-        mediator.ListQuests(QuestStatus.Completed);
+        mediator.ListQuests(ItemContent, mediator.GetListByStatus(QuestStatus.Completed));
     }
     public void UpdateCountLabel()
     {
