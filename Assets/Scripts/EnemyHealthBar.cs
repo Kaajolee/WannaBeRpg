@@ -18,7 +18,7 @@ public class EnemyHealthBar : MonoBehaviour
 
         healthSlider = GetComponentInChildren<Slider>();
 
-        health = parentHealthComponent.health;
+        health = parentHealthComponent.Health;
         maxHealth = parentHealthComponent.maxHealth;
 
         healthSlider.maxValue = maxHealth;
@@ -30,7 +30,7 @@ public class EnemyHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        health = parentHealthComponent.health;
+        health = parentHealthComponent.Health;
         if(healthSlider.value != health)
         {
             healthSlider.value = health;
