@@ -2,38 +2,40 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyHealthController : MonoBehaviour
+public class EnemyHealthController : HealthControllerAbstract
 {
-    public int health;
-    public int maxHealth = 100;
+    
     private EnemyStatController statController;
     private TaskHolder taskHolder;
     private bool isDead = false;
     public bool isBeingDamaged = false;
+    public int maxHealth = 0;
 
 
     void Start()
     {
-        health = maxHealth;
+        MaxHealth = maxHealth;
+        Health = MaxHealth;
+        
         taskHolder = GetComponent<TaskHolder>();
         statController = GetComponent<EnemyStatController>();
     }
 
     void Update()
     {
-        if (!isDead && health <= 0)
+        if (!isDead && Health <= 0)
         {
             Die();
             
         }
     }
-    public void Heal(int healAmount)
+    public override void Heal(int healAmount)
     {
-        health += healAmount;
-        health = Mathf.Clamp(health, 0, maxHealth);
+        Health += healAmount;
+        Health = Mathf.Clamp(Health, 0, maxHealth);
         
     }
-    public void Die()
+    public override void Die()
     {
         if (!isDead)
         {
@@ -45,11 +47,11 @@ public class EnemyHealthController : MonoBehaviour
             //Destroy(gameObject);
         }
     }
-    public void TakeDamage(int damageAmount)
+    public override void TakeDamage(int damageAmount)
     {
-        health -= statController.CalculateDamageTake(damageAmount);
-        Debug.Log($"{gameObject.name} hit, current health: {health}");
-        health = Mathf.Clamp(health, 0, maxHealth);
+        Health -= statController.CalculateDamageTake(damageAmount);
+        Debug.Log($"{gameObject.name} hit, current health: {Health}");
+        Health = Mathf.Clamp(Health, 0, maxHealth);
     }
     /*public void IsBeingDamaged()
     {
