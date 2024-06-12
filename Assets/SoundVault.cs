@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +18,7 @@ public class SoundVault : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public AudioClip GetRandomMeleeSound()
@@ -28,7 +27,7 @@ public class SoundVault : MonoBehaviour
 
         return meleeSoundList[index];
     }
-    
+
     public AudioClip GetRandomFireBallSound()
     {
         int index = (int)Random.Range(0, fireballSoundList.Count);

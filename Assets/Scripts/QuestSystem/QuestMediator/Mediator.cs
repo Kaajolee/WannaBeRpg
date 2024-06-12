@@ -1,14 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Mediator : MonoBehaviour
 {
-    protected List<QuestDataScript> NotStartedQuests { get;  set; }
-    protected List<QuestDataScript> ActiveQuests { get;  set; } 
-    protected List<QuestDataScript> CompletedQuests { get;  set; }
-    public abstract void AddQuest(QuestDataScript quest); 
-    public abstract void AcceptQuest(QuestDataScript quest); 
+    protected List<QuestDataScript> NotStartedQuests { get; set; }
+    protected List<QuestDataScript> ActiveQuests { get; set; }
+    protected List<QuestDataScript> CompletedQuests { get; set; }
+    public abstract void AddQuest(QuestDataScript quest);
+    public abstract void AcceptQuest(QuestDataScript quest);
     public abstract void RemoveQuest(QuestDataScript quest);
     public abstract void ListQuests(Transform whereTo, List<QuestDataScript> questDataList);
     public abstract QuestDataScript FindQuestByName(string questName);

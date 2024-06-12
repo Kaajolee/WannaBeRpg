@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
@@ -29,7 +26,7 @@ public class MeleeAttack : MonoBehaviour
     {
         if (Time.time <= lastInputTime + attackCooldown)
             return;
-        if (Input.GetKeyDown(KeyCode.Mouse0) && HotberController.currentSelection ==0)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && HotberController.currentSelection == 0)
         {
             Attack();
 
@@ -39,22 +36,22 @@ public class MeleeAttack : MonoBehaviour
     }
     void Attack()
     {
-            PlayerMovement.canMove = true;
+        PlayerMovement.canMove = true;
 
-            Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
-            foreach (Collider enemy in hitEnemies)
+        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
+        foreach (Collider enemy in hitEnemies)
+        {
+            if (enemy.gameObject.tag == "enemy")
             {
-                if(enemy.gameObject.tag == "enemy")
-                {
-                    EnemyHealthController enemyhealth = enemy.gameObject.GetComponent<EnemyHealthController>();
-                    CalculateCritAndPopUp(enemyhealth);
-                    PlayAccordingMeleeAnimation();
-                    PlayRandomMeleeSound();
-                }
-
+                EnemyHealthController enemyhealth = enemy.gameObject.GetComponent<EnemyHealthController>();
+                CalculateCritAndPopUp(enemyhealth);
+                PlayAccordingMeleeAnimation();
+                PlayRandomMeleeSound();
             }
-            
-        
+
+        }
+
+
     }
     void CalculateCritAndPopUp(EnemyHealthController enemyhealth)
     {
@@ -75,32 +72,28 @@ public class MeleeAttack : MonoBehaviour
     }
     void PlayAccordingMeleeAnimation()
     {
-        try
+        Item.WeaponType equipedWeaponType = EquipController.equipedWeapon.weaponType;
+        switch (equipedWeaponType)
         {
-            Item.WeaponType equipedWeaponType = EquipController.equipedWeapon.weaponType;
-            switch (equipedWeaponType)
-            {
-                case Item.WeaponType.None:
+            case Item.WeaponType.None:
+                if (Random.Range(0, 2) == 1)
+                {
+                    animator.Play("PunchLeft");
+                }
+                else
+                    animator.Play("PunchRight");
+                break;
 
-                    break;
-                case Item.WeaponType.TwoHanded:
-                    animator.Play("MeleeAttack_TwoHanded");
-                    break;
-                case Item.WeaponType.OneHanded:
-                    animator.Play("MeleeAttack_OneHanded");
-                    break;
-                case Item.WeaponType.Ranged:
-                    break;
-            }
-        }
-        catch(NullReferenceException e)
-        {
-            if (UnityEngine.Random.Range(0, 2) == 1)
-            {
-                animator.Play("PunchLeft");
-            }
-            else
-                animator.Play("PunchRight");
+            case Item.WeaponType.TwoHanded:
+                animator.Play("MeleeAttack_TwoHanded");
+                break;
+
+            case Item.WeaponType.OneHanded:
+                animator.Play("MeleeAttack_OneHanded");
+                break;
+
+            case Item.WeaponType.Ranged:
+                break;
         }
     }
     void PlayRandomMeleeSound()
@@ -112,9 +105,6 @@ public class MeleeAttack : MonoBehaviour
             audioSource.clip = randomMeleeSound;
             audioSource.Play();
         }
-        
+
     }
-
-
-
 }

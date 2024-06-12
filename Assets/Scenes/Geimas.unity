@@ -841,7 +841,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllQuestDataList:
   - {fileID: 11400000, guid: 9c613bb6011c671499d6dd25096ea331, type: 2}
-  - {fileID: 11400000, guid: 353c64360d7914444a7b9b7320d1777f, type: 2}
   - {fileID: 11400000, guid: 976ba550817014a49811b1763ccd8992, type: 2}
   mediator: {fileID: 0}
   ItemContent: {fileID: 1424396728}
@@ -12962,7 +12961,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191004715}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38241804, y: -0.28823745, z: 0.12689307, w: 0.8686621}
+  m_LocalRotation: {x: 0.38241804, y: -0.28823745, z: 0.12689306, w: 0.8686621}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14845,7 +14844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1365327605
 MonoBehaviour:
   m_ObjectHideFlags: 0

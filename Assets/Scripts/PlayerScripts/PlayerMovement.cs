@@ -82,10 +82,10 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             //currentPosition = new Vector2(transform.position.x, transform.position.z);
-            Debug.DrawRay(transform.position + new Vector3(0,1,0), playerInput);
+            Debug.DrawRay(transform.position + new Vector3(0, 1, 0), playerInput);
             characterController.Move(moveDirection.normalized * Time.deltaTime * moveSpeed);
             //characterController.Move(velocityY * Time.deltaTime);
-            
+
 
             //Vector2 nextPosition = new Vector2(transform.position.x, transform.position.z);
 
@@ -117,17 +117,4 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(audioSource.clip.length);
         }
     }
-
-    /*void PlayWalkingSound()
-    {
-        if(isMoving && !audioSource.isPlaying && isGrounded)
-        {
-            audioSource.pitch = Random.Range(0.8f, 1.1f);
-            audioSource.Play();
-        }
-            
-
-        else if(!isMoving && audioSource.isPlaying || !isGrounded && audioSource.isPlaying)
-            audioSource.Stop();
-    }*/
 }

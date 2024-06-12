@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class FireBallCast : MonoBehaviour
 {
-    
+
     public Transform shootPosition;
 
     public float fireBallSpeed;
@@ -33,11 +29,11 @@ public class FireBallCast : MonoBehaviour
     {
         if (HotberController.currentSelection == 2)
         {
-            if (Input.GetButtonDown("Fire1")&& !isCasting)
+            if (Input.GetButtonDown("Fire1") && !isCasting)
             {
                 StartCasting();
             }
-            if(isCasting)
+            if (isCasting)
             {
                 UpdateCastTimer();
             }
@@ -52,7 +48,7 @@ public class FireBallCast : MonoBehaviour
         rb.velocity = shootPosition.forward * fireBallSpeed * Time.deltaTime;
 
         Vector3 playerRotation = transform.eulerAngles;
-        fireBall.transform.rotation = Quaternion.Euler(new Vector3 (0, playerRotation.y, 0));
+        fireBall.transform.rotation = Quaternion.Euler(new Vector3(0, playerRotation.y, 0));
 
         PlayFireballSound();
     }
@@ -77,7 +73,7 @@ public class FireBallCast : MonoBehaviour
         float castPercentage = Mathf.Clamp01(currentCastTime / castTime);
         instantiatedCastBarSlider.value = castPercentage;
 
-        if(currentCastTime >= castTime)
+        if (currentCastTime >= castTime)
         {
             FinishCasting();
         }
