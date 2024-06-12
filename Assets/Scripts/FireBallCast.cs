@@ -22,6 +22,8 @@ public class FireBallCast : MonoBehaviour
 
     private Animator animator;
 
+    public AudioSource audioSource;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -52,6 +54,7 @@ public class FireBallCast : MonoBehaviour
         Vector3 playerRotation = transform.eulerAngles;
         fireBall.transform.rotation = Quaternion.Euler(new Vector3 (0, playerRotation.y, 0));
 
+        PlayFireballSound();
     }
     void StartCasting()
     {
@@ -62,6 +65,10 @@ public class FireBallCast : MonoBehaviour
         isCasting = true;
         currentCastTime = 0f;
         animator.Play("SpellCast");
+
+        audioSource.clip = SoundVault.Instance.fireBallCastSound;
+        audioSource.Play();
+
     }
     void UpdateCastTimer()
     {
@@ -83,5 +90,11 @@ public class FireBallCast : MonoBehaviour
         Destroy(instantiatedCastBarObject);
 
 
+    }
+    void PlayFireballSound()
+    {
+        AudioClip fireballSound = SoundVault.Instance.GetRandomFireBallSound();
+        audioSource.clip = fireballSound;
+        audioSource.Play();
     }
 }

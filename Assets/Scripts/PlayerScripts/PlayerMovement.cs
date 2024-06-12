@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -15,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 currentPosition;
     Vector3 velocityY;
+
+    public AudioSource audioSource;
 
     public Transform cam;
 
@@ -56,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
         else
             isMoving = false;
 
+        PlayWalkingSound();
 
 
 
@@ -91,4 +95,39 @@ public class PlayerMovement : MonoBehaviour
             //    isMoving = false;
         }
     }
+    void PlayWalkingSound()
+    {
+        if (isMoving && isGrounded && !audioSource.isPlaying)
+        {
+            StartCoroutine(PlaySoundWithRandomPitch());
+        }
+        else if ((!isMoving || !isGrounded) && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+            StopCoroutine(PlaySoundWithRandomPitch());
+        }
+    }
+
+    IEnumerator PlaySoundWithRandomPitch()
+    {
+        while (isMoving && isGrounded)
+        {
+            audioSource.pitch = Random.Range(0.8f, 1.1f);
+            audioSource.Play();
+            yield return new WaitForSeconds(audioSource.clip.length);
+        }
+    }
+
+    /*void PlayWalkingSound()
+    {
+        if(isMoving && !audioSource.isPlaying && isGrounded)
+        {
+            audioSource.pitch = Random.Range(0.8f, 1.1f);
+            audioSource.Play();
+        }
+            
+
+        else if(!isMoving && audioSource.isPlaying || !isGrounded && audioSource.isPlaying)
+            audioSource.Stop();
+    }*/
 }

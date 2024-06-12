@@ -35,6 +35,7 @@ public class NpcNavMeshAi : MonoBehaviour
             Vector3 nextPos = CalculateNextPosition(centerTransform.position, -1);
 
             aiAgent.SetDestination(nextPos);
+
             isMoving = true;
             yield return new WaitForSeconds(wanderCooldown);
 

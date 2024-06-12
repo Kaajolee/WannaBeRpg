@@ -6,12 +6,18 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 {
     public Transform attackPoint;
-    public float attackRange = 0.5f;
+
     public LayerMask enemyLayers;
-    public int attackDamage = 15;
+
     private Animator animator;
+
+    public AudioSource audioSource;
+
+    public float attackRange = 0.5f;
     public float attackCooldown;
     private float lastInputTime;
+
+    public int attackDamage = 15;
 
     private void Start()
     {
@@ -34,6 +40,7 @@ public class MeleeAttack : MonoBehaviour
     void Attack()
     {
             PlayerMovement.canMove = true;
+
             Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
             foreach (Collider enemy in hitEnemies)
             {
@@ -42,10 +49,8 @@ public class MeleeAttack : MonoBehaviour
                     EnemyHealthController enemyhealth = enemy.gameObject.GetComponent<EnemyHealthController>();
                     CalculateCritAndPopUp(enemyhealth);
                     PlayAccordingMeleeAnimation();
+                    PlayRandomMeleeSound();
                 }
-
-                //Debug.Log("Melee attack hit, name: " + enemy.name);
-                //Debug.Log("Enemy level: " + enemy.GetComponent<EnemyStatController>().enemyLevel);
 
             }
             
@@ -98,6 +103,18 @@ public class MeleeAttack : MonoBehaviour
                 animator.Play("PunchRight");
         }
     }
+    void PlayRandomMeleeSound()
+    {
+        AudioClip randomMeleeSound = SoundVault.Instance.GetRandomMeleeSound();
 
-    
+        if (randomMeleeSound != null)
+        {
+            audioSource.clip = randomMeleeSound;
+            audioSource.Play();
+        }
+        
+    }
+
+
+
 }
