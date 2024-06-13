@@ -17,12 +17,6 @@ public class InventoryUIController : MonoBehaviour
     {
         inventory = GetComponent<Inventory>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void LoadUIItems()
     {
         CleanUI();
