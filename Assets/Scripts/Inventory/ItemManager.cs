@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ItemManager : MonoBehaviour
+{
+    // Start is called before the first frame update
+
+    public static ItemManager Instance { get; private set; }
+
+    public Inventory inventory;
+    void Start()
+    {
+        Instance = this;
+
+        inventory = GetComponent<Inventory>();
+    }
+    public void OnItemClicked(PhysicalItem Item)
+    {
+        Item item = ItemDatabase.instance.GetItemByID(Item.ID);
+
+        if (item != null)
+        {
+            // prideti i inventoriu
+            inventory.AddItem(item);
+
+            Destroy(Item.gameObject);
+        }
+        else
+            Debug.LogError("[Item Manager] item ID not found in the DB, ID: " + Item.ID);
+    }
+
+}

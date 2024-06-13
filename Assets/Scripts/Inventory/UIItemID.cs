@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemController : MonoBehaviour
+public class UIItemID : MonoBehaviour
 {
-    public Item item;
+    public int ID;
 }

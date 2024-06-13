@@ -18,7 +18,7 @@ public class KeybindManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            InventoryManager.Instance.ListItems();
+            //InventoryManager.Instance.ListItems();
             SwitchActive(inventoryPanel);
         }
         if (Input.GetKeyDown(KeyCode.N))

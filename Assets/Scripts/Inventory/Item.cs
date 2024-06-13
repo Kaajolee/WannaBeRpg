@@ -13,11 +13,9 @@ public class Item : ScriptableObject
     public WeaponType weaponType;
     public GameObject prefab;
 
-
     public enum ItemType
     {
-        healthPotion,
-        manaPotion,
+        consumable,
         weapon
     }
     public enum WeaponType

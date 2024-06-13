@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dbc6816754cfee45ae6cde701ab209e, type: 3}
-  m_Name: Dagger
+  m_Name: Axe
   m_EditorClassIdentifier: 
-  id: 2
-  itemName: Dagger
-  value: 5
-  icon: {fileID: 21300000, guid: 050891e933439f34991f2afd1a226ead, type: 3}
-  itemType: 2
+  id: 1
+  itemName: Axe
+  value: 10
+  icon: {fileID: 21300000, guid: 5b63e32b35c29be4f998ade4a87be2de, type: 3}
+  itemType: 1
   weaponType: 2
-  prefab: {fileID: 5458737265024032779, guid: 07f5041b700bb4b4e86fbf14085d8910, type: 3}
+  prefab: {fileID: 8203073568141072114, guid: 5b13c309a7974264dbcb0e594f8ab8bb, type: 3}
