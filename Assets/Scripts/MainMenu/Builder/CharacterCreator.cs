@@ -11,6 +11,7 @@ public class CharacterCreator : MonoBehaviour
     public CharacterColorSelector characterColorSelector;
     public CharacterColors colorDataObj;
 
+    AudioSource audioSource;
     private void Start()
     {
 
@@ -24,6 +25,8 @@ public class CharacterCreator : MonoBehaviour
         characterBuilder = (CharacterBuilder)characterBuilderBase;
         //character = characterBuilder.Build();
         //atvaizduoti default zmogeliuka
+
+        audioSource = Camera.main.GetComponent<AudioSource>();
 
     }
     private void Update()
@@ -42,7 +45,9 @@ public class CharacterCreator : MonoBehaviour
         Character builtChar = characterBuilderBase.Build();
         colorDataObj = builtChar.SetColorData(colorDataObj);
         Debug.Log("Character built, colors: \n" + builtChar.GetCurrentColors());
+        audioSource.Play();
         SceneManager.LoadScene("Geimas");
+        
         //return builtChar;
 
     }

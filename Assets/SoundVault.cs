@@ -9,9 +9,17 @@ public class SoundVault : MonoBehaviour
     public List<AudioClip> meleeSoundList;
     public List<AudioClip> fireballSoundList;
 
+    public AudioClip musicSound;
+
     public AudioClip fireBallCastSound;
-    void Start()
+    void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
         Instance = this;
     }
 
@@ -33,5 +41,9 @@ public class SoundVault : MonoBehaviour
         int index = (int)Random.Range(0, fireballSoundList.Count);
 
         return fireballSoundList[index];
+    }
+    public AudioClip GetMusicClip()
+    {
+        return musicSound;
     }
 }

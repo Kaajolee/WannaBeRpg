@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public static Vector3 playerPosition;
     float horizontal;
     float vertical;
-    public float rotationTime;
+
 
     public bool isMoving = false;
     public bool isGrounded = true;
@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float jumpPower;
     public float gravity;
+    public float rotationTime;
+    public float minPitch;
+    public float maxPitch;
     float turnSmoothness;
 
     void Start()
@@ -112,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
     {
         while (isMoving && isGrounded)
         {
-            audioSource.pitch = Random.Range(0.8f, 1.1f);
+            audioSource.pitch = Random.Range(minPitch, maxPitch);
             audioSource.Play();
             yield return new WaitForSeconds(audioSource.clip.length);
         }

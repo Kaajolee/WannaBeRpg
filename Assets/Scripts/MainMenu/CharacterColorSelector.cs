@@ -18,9 +18,11 @@ public class CharacterColorSelector : MonoBehaviour
 
     public int hairIndex, eyeIndex, skinIndex, clothingIndex;
 
+    AudioSource audioSource;
     void Start()
     {
         hairIndex = eyeIndex = skinIndex = clothingIndex = 0;
+        audioSource = Camera.main.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,6 +43,8 @@ public class CharacterColorSelector : MonoBehaviour
             return;
         else
             hairIndex--;
+
+        audioSource.Play();
     }
     public void ShiftHairRight()
     {
@@ -48,6 +52,8 @@ public class CharacterColorSelector : MonoBehaviour
             return;
         else
             hairIndex++;
+
+        audioSource.Play();
     }
     public void ShiftEyeLeft()
     {
@@ -55,6 +61,8 @@ public class CharacterColorSelector : MonoBehaviour
             return;
         else
             eyeIndex--;
+
+        audioSource.Play();
     }
     public void ShiftEyeRight()
     {
@@ -62,6 +70,8 @@ public class CharacterColorSelector : MonoBehaviour
             return;
         else
             eyeIndex++;
+
+        audioSource.Play();
     }
     public void ShiftSkinLeft()
     {
@@ -69,6 +79,8 @@ public class CharacterColorSelector : MonoBehaviour
             return;
         else
             skinIndex--;
+
+        audioSource.Play();
     }
     public void ShiftSkinRight()
     {
@@ -76,6 +88,8 @@ public class CharacterColorSelector : MonoBehaviour
             return;
         else
             skinIndex++;
+
+        audioSource.Play();
     }
     public void ShiftClothingLeft()
     {
@@ -83,6 +97,8 @@ public class CharacterColorSelector : MonoBehaviour
             return;
         else
             clothingIndex--;
+
+        audioSource.Play();
     }
     public void ShiftClothingRight()
     {
@@ -90,6 +106,8 @@ public class CharacterColorSelector : MonoBehaviour
             return;
         else
             clothingIndex++;
+
+        audioSource.Play();
     }
     public Color GetCurrentHairColor()
     {

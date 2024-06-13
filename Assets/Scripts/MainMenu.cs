@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -13,6 +14,8 @@ public class MainMenu : MonoBehaviour
     public GameObject CreationpanelGO;
     public GameObject MainMenupanelGO;
     public static CameraTransition camTransScript;
+
+    AudioSource audioSource;
 
     Transform creationTransform;
     Transform optionsTransform;
@@ -30,6 +33,7 @@ public class MainMenu : MonoBehaviour
         CreationpanelGO.SetActive(false);
 
         camTransScript = Camera.main.GetComponent<CameraTransition>();
+        audioSource = Camera.main.GetComponent<AudioSource>();
         creationTransform = camTransScript.characterCreationPoint;
         mainTransform = camTransScript.MainMenuPoint;
         optionsTransform = camTransScript.optionsPoint;
@@ -41,9 +45,9 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Options button pressed");
         camTransScript.MoveCameraTo(optionsTransform);
-
         OptionsPanelGO.SetActive(!OptionsPanelGO.activeSelf);
         MainMenupanelGO.SetActive(!MainMenupanelGO.activeSelf);
+        audioSource.Play();
     }
     public void CreditsMenuSelect()
     {
@@ -52,9 +56,11 @@ public class MainMenu : MonoBehaviour
 
         CreditsPanelGO.SetActive(!CreditsPanelGO.activeSelf);
         MainMenupanelGO.SetActive(!MainMenupanelGO.activeSelf);
+        audioSource.Play();
     }
     public void ExitMenuSelect()
     {
+        audioSource.Play();
         Application.Quit();
     }
     public void StartNewGameMenuSelect()
@@ -64,6 +70,7 @@ public class MainMenu : MonoBehaviour
         camTransScript.MoveCameraTo(creationTransform);
         CreationpanelGO.SetActive(!CreationpanelGO.activeSelf);
         MainMenupanelGO.SetActive(!MainMenupanelGO.activeSelf);
+        audioSource.Play();
     }
     public void BackButtonSelect()
     {
@@ -75,6 +82,7 @@ public class MainMenu : MonoBehaviour
             enabled.SetActive(!enabled.activeSelf);
             MainMenupanelGO.SetActive(!MainMenupanelGO.activeSelf);
             camTransScript.MoveCameraTo(mainTransform);
+            audioSource.Play();
         }
 
     }
