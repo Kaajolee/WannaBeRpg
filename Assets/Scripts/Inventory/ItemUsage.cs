@@ -15,11 +15,11 @@ public class ItemUsage : MonoBehaviour
         switch (item.itemType) 
         {
             case Item.ItemType.weapon:
-
+                
                 break;
 
             case Item.ItemType.consumable:
-
+                // papildyt logika (dabar nera tokio itemo)
                 break;
         }
     }

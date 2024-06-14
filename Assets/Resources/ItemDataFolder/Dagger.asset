@@ -19,3 +19,4 @@ MonoBehaviour:
   itemType: 1
   weaponType: 2
   prefab: {fileID: 5458737265024032779, guid: 07f5041b700bb4b4e86fbf14085d8910, type: 3}
+  mesh: {fileID: -1440419022873279924, guid: 79f4cdb09da63b74081e5ed761e963ee, type: 3}

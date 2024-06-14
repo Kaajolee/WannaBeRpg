@@ -12,6 +12,7 @@ public class Item : ScriptableObject
     public ItemType itemType;
     public WeaponType weaponType;
     public GameObject prefab;
+    public Mesh mesh;
 
     public enum ItemType
     {

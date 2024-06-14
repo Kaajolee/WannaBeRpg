@@ -5294,3 +5294,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDamage: 52
+  destroyTime: 5

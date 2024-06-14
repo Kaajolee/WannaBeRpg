@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<Item> inventoryItems;
+    public List<Item> equipedItems;
     void Start()
     {
         inventoryItems = new List<Item>();
@@ -27,5 +29,15 @@ public class Inventory : MonoBehaviour
         }
         else
             Debug.LogError("[Inventory] item is not in the inventory, name - " + item.itemName);
+    }
+    public void EquipItem(Item item)
+    {
+        inventoryItems.Remove(item);
+        equipedItems.Add(item);
+    }
+    public void UnequipItem(Item item)
+    {
+        inventoryItems.Add(item);
+        equipedItems.Remove(item);
     }
 }

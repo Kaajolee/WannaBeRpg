@@ -5,7 +5,7 @@ using UnityEngine;
 public class FireBallDamage : MonoBehaviour
 {
     public int baseDamage;
-
+    public float destroyTime;
     void Update()
     {
         
@@ -31,5 +31,9 @@ public class FireBallDamage : MonoBehaviour
         enemyHealthController.TakeDamage(baseDamage);
         DamagePopUp.Create(enemyHealthController.transform.position, baseDamage, false, enemyHealthController.gameObject.tag);
         Destroy(gameObject);
+    }
+    private void OnEnable()
+    {
+        Destroy(gameObject, destroyTime);
     }
 }

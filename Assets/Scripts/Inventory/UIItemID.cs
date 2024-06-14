@@ -6,5 +6,8 @@ public class UIItemID : MonoBehaviour
 {
     public int ID;
 
-
+    public void EquipItem()
+    {
+        ItemManager.Instance.EquipItem(this);
+    }
 }

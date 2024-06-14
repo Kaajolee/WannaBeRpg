@@ -72,7 +72,7 @@ public class MeleeAttack : MonoBehaviour
     }
     void PlayAccordingMeleeAnimation()
     {
-        Item.WeaponType equipedWeaponType = EquipController.equipedWeapon.weaponType;
+        /*Item.WeaponType equipedWeaponType = EquipController.equipedWeapon.weaponType;
         switch (equipedWeaponType)
         {
             case Item.WeaponType.None:
@@ -94,7 +94,7 @@ public class MeleeAttack : MonoBehaviour
 
             case Item.WeaponType.Ranged:
                 break;
-        }
+        }*/
     }
     void PlayRandomMeleeSound()
     {

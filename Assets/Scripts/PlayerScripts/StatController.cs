@@ -26,15 +26,15 @@ public class StatController : MonoBehaviour
     }
     private void Start()
     {
-        MweaponDamage = EquipController.equipedWeapon.value;
+        //MweaponDamage = EquipController.equipedWeapon.value;
     }
     private void Update()
     {
-        MweaponDamage = EquipController.equipedWeapon.value;
+        //MweaponDamage = EquipController.equipedWeapon.value;
     }
     public int CalculateMeleeAttackDamage(out bool isCrit)
     {
-        MweaponDamage = EquipController.equipedWeapon.value;
+        //MweaponDamage = EquipController.equipedWeapon.value;
         int damage;
         if (UnityEngine.Random.Range(0,5) == 1)
         {

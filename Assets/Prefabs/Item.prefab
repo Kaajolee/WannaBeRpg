@@ -331,9 +331,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryItemController, Assembly-CSharp
-        m_MethodName: UseItem
+      - m_Target: {fileID: 4575693325587744096}
+        m_TargetAssemblyTypeName: UIItemID, Assembly-CSharp
+        m_MethodName: EquipItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

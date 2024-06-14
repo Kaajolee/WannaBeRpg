@@ -29,5 +29,15 @@ public class ItemManager : MonoBehaviour
         else
             Debug.LogError("[Item Manager] item ID not found in the DB, ID: " + Item.ID);
     }
+    public void EquipItem(UIItemID item)
+    {
+        Item itemdata = ItemDatabase.instance.GetItemByID(item.ID);
+        inventory.EquipItem(itemdata);
+    }
+    public void UnequipItem(UIItemID item)
+    {
+        Item itemdata = ItemDatabase.instance.GetItemByID(item.ID);
+        inventory.UnequipItem(itemdata);
+    }
 
 }

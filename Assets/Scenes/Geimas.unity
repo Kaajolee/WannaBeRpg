@@ -12981,7 +12981,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191004715}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38241804, y: -0.28823745, z: 0.12689307, w: 0.8686621}
+  m_LocalRotation: {x: 0.38241804, y: -0.28823748, z: 0.12689307, w: 0.8686621}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20765,6 +20765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryItems: []
+  equipedItems: []
 --- !u!114 &2015855168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21860,11 +21861,6 @@ PrefabInstance:
       propertyPath: freeLookCamera
       value: 
       objectReference: {fileID: 1430329008}
-    - target: {fileID: 7608823438293208368, guid: cf22b64d522107e428513c5fe0438a78,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 7905270364040986135, guid: cf22b64d522107e428513c5fe0438a78,
         type: 3}
       propertyPath: m_LocalPosition.x
