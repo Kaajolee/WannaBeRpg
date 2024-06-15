@@ -27,7 +27,7 @@ public class ItemManager : MonoBehaviour
         {
             // prideti i inventoriu
             inventory.AddItem(item);
-
+            OnInventoryDataChange.Invoke();
             Destroy(Item.gameObject);
         }
         else
@@ -35,12 +35,15 @@ public class ItemManager : MonoBehaviour
     }
     public void EquipItem(UIItemID item)
     {
+        //gauti itemo data is DB
         Item itemdata = ItemDatabase.instance.GetItemByID(item.ID);
         inventory.EquipItem(itemdata);
 
+        //equipinti itema
         Item itemToSwap;
         EquipmentManager.Instance.EquipItem(itemdata, out itemToSwap);
 
+        //jei ne null, perkelti i kita data lista
         if(itemToSwap != null)
         inventory.UnequipItem(itemToSwap);
 

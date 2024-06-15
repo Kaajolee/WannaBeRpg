@@ -16,13 +16,16 @@ public class EquipmentManager : MonoBehaviour
     MeshFilter meshFilter;
     MeshRenderer meshRenderer;
     public static EquipmentManager Instance { get; private set; }
+
+    EquipmentUIManager equipmentUIManager;
     void Start()
     {
         Instance = this;
 
         meshFilter = jointItemGO.GetComponent<MeshFilter>();
         meshRenderer = jointItemGO.GetComponent<MeshRenderer>();
-
+        equipmentUIManager = GetComponent<EquipmentUIManager>();
+        
         if (meshFilter == null)
             Debug.LogError("[EquipmentManager] MeshFilter is null");
 
@@ -62,7 +65,8 @@ public class EquipmentManager : MonoBehaviour
                 //prideti case su armoru
         }
 
-        
+        equipmentUIManager.ChangeSprite(itemToEquip);
+
 
     }
     public void ChangeItemMesh(MeshFilter filter, MeshRenderer renderer)

@@ -7,6 +7,7 @@ public class KeybindManager : MonoBehaviour
     public GameObject inventoryPanel;
     public GameObject questPanel;
     public GameObject performancePanel;
+    public GameObject characterPanel;
 
     // Update is called once per frame
     void Update()
@@ -18,7 +19,6 @@ public class KeybindManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            //InventoryManager.Instance.ListItems();
             SwitchActive(inventoryPanel);
         }
         if (Input.GetKeyDown(KeyCode.N))
@@ -29,6 +29,10 @@ public class KeybindManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             SwitchActive(performancePanel);
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            SwitchActive(characterPanel);
         }
     }
     private void SwitchActive(GameObject ob)
