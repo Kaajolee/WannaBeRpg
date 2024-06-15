@@ -13,9 +13,12 @@ public class InventoryUIController : MonoBehaviour
     public GameObject uiContentWindow;
 
     Inventory inventory;
+
     void Start()
     {
         inventory = GetComponent<Inventory>();
+
+        ItemManager.Instance.OnInventoryDataChange += LoadUIItems;
     }
     public void LoadUIItems()
     {

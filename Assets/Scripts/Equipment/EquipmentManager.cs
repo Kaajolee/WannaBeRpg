@@ -11,16 +11,29 @@ public class EquipmentManager : MonoBehaviour
 
     public Material material;
 
-    public EquipmentManager Instance { get; private set; }
+    public GameObject jointItemGO;
+
+    MeshFilter meshFilter;
+    MeshRenderer meshRenderer;
+    public static EquipmentManager Instance { get; private set; }
     void Start()
     {
         Instance = this;
+
+        meshFilter = jointItemGO.GetComponent<MeshFilter>();
+        meshRenderer = jointItemGO.GetComponent<MeshRenderer>();
+
+        if (meshFilter == null)
+            Debug.LogError("[EquipmentManager] MeshFilter is null");
+
+        if (meshRenderer == null)
+            Debug.LogError("[EquipmentManager] MeshRenderer is null");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ChangeItemMesh(meshFilter, meshRenderer);
     }
     public void EquipItem(Item itemToEquip, out Item itemToSwap)
     {
@@ -49,10 +62,7 @@ public class EquipmentManager : MonoBehaviour
                 //prideti case su armoru
         }
 
-        if(itemToSwap == null)
-        {
-            Debug.LogError("[EquipmentManager] item to be swapped is null, name: " + itemToSwap.itemName);
-        }
+        
 
     }
     public void ChangeItemMesh(MeshFilter filter, MeshRenderer renderer)
@@ -61,17 +71,20 @@ public class EquipmentManager : MonoBehaviour
         {
             //melee
             case 0:
-                SetItemMesh(meleeSlot, filter, renderer, false);
+                if(meleeSlot != null)
+                    SetItemMesh(meleeSlot, filter, renderer, false);
                 break;
              
             //ranged
             case 1:
-                SetItemMesh(rangedSlot, filter, renderer, false);
+                if (rangedSlot != null)
+                    SetItemMesh(rangedSlot, filter, renderer, false);
                 break;
 
             //fireball
             case 2:
-                SetItemMesh(meleeSlot, filter, renderer, true);
+                if (meleeSlot != null)
+                    SetItemMesh(meleeSlot, filter, renderer, true);
                 break;
         }
     }

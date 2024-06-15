@@ -8,6 +8,10 @@ public class ItemManager : MonoBehaviour
 
     public static ItemManager Instance { get; private set; }
 
+    public delegate void InventoryDataChangeEventHandler();
+
+    public event InventoryDataChangeEventHandler OnInventoryDataChange;
+
     public Inventory inventory;
     void Start()
     {
@@ -33,6 +37,14 @@ public class ItemManager : MonoBehaviour
     {
         Item itemdata = ItemDatabase.instance.GetItemByID(item.ID);
         inventory.EquipItem(itemdata);
+
+        Item itemToSwap;
+        EquipmentManager.Instance.EquipItem(itemdata, out itemToSwap);
+
+        if(itemToSwap != null)
+        inventory.UnequipItem(itemToSwap);
+
+        OnInventoryDataChange.Invoke();
     }
     public void UnequipItem(UIItemID item)
     {
