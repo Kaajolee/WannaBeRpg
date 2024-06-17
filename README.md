@@ -158,6 +158,11 @@ The features that are planned, in progress or completed.
     - **Priority** Low
     - **Description** Add a cool sountrack to the game.
 
+- **Achievements**
+    - **Status:** Planned
+    - **Priority** Low
+    - **Description** Add achievements to the game for the player to seek.
+
 ### Completed goals
 
 - **Quest system**
