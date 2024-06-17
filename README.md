@@ -121,6 +121,16 @@ The features that are planned, in progress or completed.
     - **Priority** High
     - **Description** Implement various enemy types with visuals and different logic.
 
+- **Storyline**
+    - **Status:** Planned
+    - **Priority** Medium
+    - **Description** Create an interesting storyline.
+
+- **Targeting system**
+    - **Status:** Planned
+    - **Priority** Medium
+    - **Description** Implement a direct targeting system.
+
 ### Long-term goals to acomplish
 
 - **Improved documentation**
@@ -164,6 +174,11 @@ The features that are planned, in progress or completed.
     - **Status:** Completed
     - **Priority** High
     - **Description** Expand the map.
+
+- **Character panel**
+    - **Status:** Completed
+    - **Priority** Medium
+    - **Description** Lets the player view his character(equiped items).
 
 ## :prince: Creators
 
