@@ -25,6 +25,7 @@ public class KeybindManager : MonoBehaviour
         {
             SwitchActive(questPanel);
             QuestManager.Instance.UpdateCountLabel();
+            QuestManager.Instance.ActiveQuestsClicked();
         }
         if (Input.GetKeyDown(KeyCode.I))
         {

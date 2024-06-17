@@ -17,6 +17,6 @@ MonoBehaviour:
   QuestDescription: Protect your town and kill the invader that will terrorise the
     city!
   QuestReward: {fileID: 11400000, guid: 0fa5a6f3e6968cc458d3e8b8d147194e, type: 2}
-  QuestStatus: 0
+  QuestStatus: 1
   QuestObjectiveType: 0
   QuestObjectiveCount: 1

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -18,6 +17,9 @@ public class QuestManager : MonoBehaviour
     public GameObject aboutTextArea;
     public GameObject QuestItemPrefabInProgress;
 
+    public delegate void QuestDataChangedEventHandler();
+    public event QuestDataChangedEventHandler OnQuestDataChanged;
+
     void Start()
     {
         mediator = new ConcreteMediator();
@@ -29,7 +31,8 @@ public class QuestManager : MonoBehaviour
         mediator.QuestItemPrefabInProgress = QuestItemPrefabInProgress;
         mediator.ItemContentInProgress = ItemContentInProgress;
 
-        StartCoroutine(RefreshInProgressQuests());
+        OnQuestDataChanged += RefreshInProgressQuests;
+
     }
     private void Awake()
     {
@@ -64,13 +67,14 @@ public class QuestManager : MonoBehaviour
     public void AcceptQuest(QuestDataScript questData)
     {
         mediator.AcceptQuest(questData);
+        OnQuestDataChanged.Invoke();
     }
-    IEnumerator RefreshInProgressQuests()
+    void RefreshInProgressQuests()
     {
-        while (true)
-        {
-            mediator.ListInProgressQuests();
-            yield return new WaitForSeconds(1);
-        }
+        mediator.ListInProgressQuests();
+    }
+    public void UpdateUI()
+    {
+        OnQuestDataChanged.Invoke();
     }
 }

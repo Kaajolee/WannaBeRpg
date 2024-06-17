@@ -73,6 +73,7 @@ public class ConcreteMediator : Mediator
             CompletedQuests.Add(questData);
 
             Debug.Log($"Quest completed, Name: {questData.QuestName}");
+            QuestManager.Instance.UpdateUI();
         }
     }
     public override QuestDataScript FindQuestByName(string questName)
