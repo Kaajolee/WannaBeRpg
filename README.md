@@ -121,11 +121,6 @@ The features that are planned, in progress or completed.
     - **Priority** High
     - **Description** Implement various enemy types with visuals and different logic.
 
-- **Map expansion**
-    - **Status:** In progress
-    - **Priority** High
-    - **Description** Expand the map.
-
 ### Long-term goals to acomplish
 
 - **Improved documentation**
@@ -164,6 +159,11 @@ The features that are planned, in progress or completed.
     - **Status:** Completed
     - **Priority** Medium
     - **Description** Create a main menu.
+    
+- **Map expansion**
+    - **Status:** Completed
+    - **Priority** High
+    - **Description** Expand the map.
 
 ## :prince: Creators
 
