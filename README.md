@@ -76,10 +76,11 @@ The controls in game are fairly standard and simple.
     - **L** - Pause game, to unpause press **L** again
     - **N** - Open quest panel
     - **C** - Open stats panel
+    - **V** - View your character
     - **1 2 3** - switch between attack types
 
 > [!TIP]
-> To interact with an object, enable mouse and click on it (only works on items)
+> To interact with an object, click on it (only works on items)
 
 
 Once you got the controls mastered feel free to explore the world and upgrade your character.
