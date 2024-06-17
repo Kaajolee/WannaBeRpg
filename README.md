@@ -155,7 +155,7 @@ The features that are planned, in progress or completed.
 
 - **Soundtrack**
     - **Status:** Planned
-    - **Priority** Medium
+    - **Priority** Low
     - **Description** Add a cool sountrack to the game.
 
 ### Completed goals
