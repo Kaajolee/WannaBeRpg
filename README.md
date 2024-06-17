@@ -153,6 +153,11 @@ The features that are planned, in progress or completed.
     - **Priority** Medium
     - **Description** Add choises that impact character development.
 
+- **Soundtrack**
+    - **Status:** Planned
+    - **Priority** Medium
+    - **Description** Add a cool sountrack to the game.
+
 ### Completed goals
 
 - **Quest system**
