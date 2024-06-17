@@ -126,7 +126,7 @@ The features that are planned, in progress or completed.
 - **Improved documentation**
     - **Status:** In Progress
     - **Priority** Low
-    - **Description** Document every single ppart of the game.
+    - **Description** Document every single part of the game.
 
 - **CO-OP mode**
     - **Status:** Planned
@@ -159,7 +159,7 @@ The features that are planned, in progress or completed.
     - **Status:** Completed
     - **Priority** Medium
     - **Description** Create a main menu.
-    
+
 - **Map expansion**
     - **Status:** Completed
     - **Priority** High
