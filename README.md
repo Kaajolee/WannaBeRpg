@@ -148,6 +148,11 @@ The features that are planned, in progress or completed.
     - **Priority** Low
     - **Description** Create a way for people to show off their progress.
 
+- **Talent tree**
+    - **Status:** Planned
+    - **Priority** Medium
+    - **Description** Add choises that impact character development.
+
 ### Completed goals
 
 - **Quest system**
