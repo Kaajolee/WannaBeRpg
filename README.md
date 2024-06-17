@@ -11,7 +11,8 @@ The project itself is in early stages of development, but early means there is a
 
 ## :wrench: Functionality
 
-WannaBeRpg is a low poly game, so it can run on a lot of systems!
+WannaBeRpg is a low poly game, so it can run on a broad spectrum of systems!
+
 Also, the game offers
 - Stats and various weapons to kill your enemies.
 - Interesting quests and tasks for you to complete.
