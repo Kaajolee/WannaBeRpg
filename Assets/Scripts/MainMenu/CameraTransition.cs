@@ -38,16 +38,16 @@ public class CameraTransition : MonoBehaviour
     {
         Vector3 startPos = transform.position;
         Quaternion startRot = transform.rotation;
-        float elapsedTime = 0;
+        float timeElapsed = 0;
 
-        while (elapsedTime < transitionTime)
+        while (timeElapsed < transitionTime)
         {
-            float t = elapsedTime / transitionTime;
+            float t = timeElapsed / transitionTime;
 
             transform.position = Vector3.Lerp(startPos, whereToMove, t);
             transform.rotation = Quaternion.Slerp(startRot, rotateTo, t);
 
-            elapsedTime += Time.deltaTime;
+            timeElapsed += Time.deltaTime;
             yield return null;
         }
 
