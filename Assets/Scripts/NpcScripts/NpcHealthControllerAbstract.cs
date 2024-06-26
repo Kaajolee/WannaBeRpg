@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class HealthControllerAbstract : MonoBehaviour
+public abstract class HealthController : MonoBehaviour
 {
     public int Health { get; set; }
     public int MaxHealth { get; set; }

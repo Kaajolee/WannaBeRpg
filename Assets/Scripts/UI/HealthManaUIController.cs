@@ -8,14 +8,18 @@ public class HealthManaController : MonoBehaviour
 {
     public TextMeshProUGUI healthText;
     public Slider healthSlider;
+
+    private PlayerHealthController instance;
     //public TextMeshProUGUI manaText;
     //public Slider manaSlider;
     // Start is called before the first frame update
     void Start()
     {
-        healthSlider.maxValue = HealthController.instance.maxHealth;
-        healthSlider.value = HealthController.instance.health;
-        healthText.text = HealthController.instance.health.ToString();
+        instance = PlayerHealthController.instance as PlayerHealthController;
+
+        healthSlider.maxValue = instance.maxHealth;
+        healthSlider.value = instance.health;
+        healthText.text = instance.health.ToString();
     }
 
     // Update is called once per frame
@@ -25,8 +29,8 @@ public class HealthManaController : MonoBehaviour
     }
     void ChangeHealthText()
     {
-        healthSlider.maxValue = HealthController.instance.maxHealth;
-        healthSlider.value = HealthController.instance.health;
-        healthText.text = HealthController.instance.health.ToString();
+        healthSlider.maxValue = instance.maxHealth;
+        healthSlider.value = instance.health;
+        healthText.text = instance.health.ToString();
     }
 }

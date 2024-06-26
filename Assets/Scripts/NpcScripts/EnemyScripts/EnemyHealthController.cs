@@ -2,7 +2,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyHealthController : HealthControllerAbstract
+public class EnemyHealthController : HealthController
 {
     
     private EnemyStatController statController;
@@ -43,6 +43,7 @@ public class EnemyHealthController : HealthControllerAbstract
             DissolveController dissolve = GetComponent<DissolveController>();
             taskHolder.UpdateQuest();
             MoneyController.instance.EnemyKilled(GetComponent<EnemyStatController>().CalculateMoneyDropAmount());
+            GetComponent<DropItem>().DropItemOnGround();
             dissolve.StartDissolver();
             //Destroy(gameObject);
         }

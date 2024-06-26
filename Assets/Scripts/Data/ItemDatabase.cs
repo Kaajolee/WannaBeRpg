@@ -9,23 +9,17 @@ public class ItemDatabase : MonoBehaviour
 
     public static ItemDatabase instance;
 
-    List<Item> items = new List<Item>();
+    List<Item> itemData = new List<Item>();
     void Start()
     {
         instance = this;
-        items = Resources.LoadAll<Item>("ItemDataFolder").ToList();
+        itemData = Resources.LoadAll<Item>("ItemDataFolder").ToList();
 
-        Debug.Log("[ItemDatabase] Items loaded - " + items.Count);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("[ItemDatabase] Items loaded - " + itemData.Count);
     }
     public Item GetItemByID(int ID)
     {
-        foreach (var item in items)
+        foreach (var item in itemData)
         {
             if(item.id == ID)
                 return item;

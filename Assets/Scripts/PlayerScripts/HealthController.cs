@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class HealthController : MonoBehaviour
+public class PlayerHealthController : HealthController
 {
 
     public static HealthController instance;
@@ -26,17 +26,17 @@ public class HealthController : MonoBehaviour
             Die();
         }
     }
-    public void Heal(int healAmount)
+    public override void Heal(int healAmount)
     {
         health += healAmount;
         health = Mathf.Clamp(health, 0, maxHealth);
         //healthText.text = $"HP:{health}";
     }
-    public void Die()
+    public override void Die()
     {
         Destroy(gameObject);
     }
-    public void TakeDamage(int damageAmount)
+    public override void TakeDamage(int damageAmount)
     {
         health -= StatController.Instance.CalculateDamageTake(damageAmount);
         Debug.Log($"{gameObject.name} hit, current health: {health}");
