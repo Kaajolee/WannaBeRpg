@@ -8,8 +8,8 @@ public class DropItem : MonoBehaviour
     private Item itemToDrop;
     void Start()
     {
-        itemToDrop = ItemDatabase.instance.GetItemByID(1);
-        Debug.Log(itemToDrop.prefab.name);
+        //itemToDrop = ItemDatabase.instance.GetItemByID(1);
+        //Debug.Log(itemToDrop.prefab.name);
     }
     public void DropItemOnGround()
     {
