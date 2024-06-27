@@ -5,52 +5,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
 
-public class ItemBagOnClick : MonoBehaviour
+public class ItemBagUIController : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    private Item[] items;
-    [SerializeField]
-    private int itemAmount;
-
     GameObject ItemBagPanel;
     GameObject UIItemPrefab;
+
     Transform Canvas;
+
     Button TakeAllButton;
+
     ReferenceHolder RH;
+
+    ItemBagOnClick BagOnClick;
+
 
     void Start()
     {
         ItemBagPanel = ReferenceVault.Instance.ItemBagPanel;
         Canvas = ReferenceVault.Instance.MainCanvas.transform;
         UIItemPrefab = ReferenceVault.Instance.UIItemPrefab;
-    }
-    private void OnEnable()
-    {
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void OnMouseDown()
-    {
-        LoadItems();
-    }
-    private void LoadItems()
-    {
-        Random.Range(0, 3);
-        items = new Item[itemAmount];
-        items = ItemDatabase.instance.GetRandomItems(itemAmount);
 
-        if (items.Length == 0)
-            Debug.LogWarning("[ItemBagOnClick] DropTable empty");
-        else
-            Debug.Log("[ItemBagOnClick] Droptable item count: "+ items.Length);
-
-
-        TogglePanel(true);
+        BagOnClick = GetComponent<ItemBagOnClick>();
     }
     private void InstantiateBagUI(Item item)
     {
@@ -63,10 +38,12 @@ public class ItemBagOnClick : MonoBehaviour
         {
             TextMeshProUGUI itemName = uiItemInstance.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
             Image itemImage = uiItemInstance.transform.Find("ItemIcon").GetComponent<Image>();
+            //SubscribeToButtonClick(uiItemInstance.GetComponent<Button>());
+
 
             itemName.text = item.name;
             itemImage.sprite = item.icon;
-            uiItemInstance.GetComponent<InventoryUIItemID>().ID = item.id;
+            uiItemInstance.GetComponent<DroppedUIItemID>().ID = item.id;
         }
         else
             Debug.LogError("[InventoryUIController] instantiated item is null");
@@ -75,18 +52,12 @@ public class ItemBagOnClick : MonoBehaviour
     {
         ItemBagPanel.SetActive(enabled);
     }
-    private void SubscribeToButtonClick(Button button)
-    {
-        button.onClick.AddListener(MoveItemsToInventory);
-    }
-    void MoveItemsToInventory()
-    {
 
-    }
-    
     void UpdateBagUI()
     {
-        foreach (var item in items)
+        CleanBagUI();
+
+        foreach (var item in BagOnClick.items)
         {
             InstantiateBagUI(item);
         }
