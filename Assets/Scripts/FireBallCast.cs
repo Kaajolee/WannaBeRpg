@@ -55,7 +55,7 @@ public class FireBallCast : MonoBehaviour
     void StartCasting()
     {
         instantiatedCastBarObject = CastBar.CreateCastBar(GameObject.FindGameObjectWithTag("castBarLocation").transform);
-        Debug.Log(GameObject.FindGameObjectWithTag("castBarLocation").transform.position);
+        //Debug.Log(GameObject.FindGameObjectWithTag("castBarLocation").transform.position);
         instantiatedCastBarSlider = instantiatedCastBarObject.GetComponentInChildren<UnityEngine.UI.Slider>();
 
         isCasting = true;
