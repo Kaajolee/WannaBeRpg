@@ -21,10 +21,13 @@ public class ItemDatabase : MonoBehaviour
     {
         foreach (var item in itemData)
         {
-            if(item.id == ID)
+            if (item.id == ID)
+            {
+                
                 return item;
+            }
+                
         }
-
         return null;
     }
 }
