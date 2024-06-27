@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 8405622487382287411}
   - component: {fileID: 2831582183977060810}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: EnemyHPBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

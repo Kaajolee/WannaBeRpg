@@ -5,6 +5,9 @@ using UnityEngine;
 public class DropItem : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField]
+    private GameObject itemBagPrefab;
+
     private Item itemToDrop;
     void Start()
     {
@@ -12,7 +15,6 @@ public class DropItem : MonoBehaviour
     }
     public void DropItemOnGround()
     {
-        GameObject ob = Instantiate(itemToDrop.prefab, transform.position, transform.rotation) ;
-        
+        GameObject ob = Instantiate(itemBagPrefab, transform.position, Quaternion.identity); 
     }
 }
