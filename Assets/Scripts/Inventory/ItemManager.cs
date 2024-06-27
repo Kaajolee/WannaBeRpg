@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemManager : MonoBehaviour
@@ -23,17 +21,21 @@ public class ItemManager : MonoBehaviour
     {
         Item item = ItemDatabase.instance.GetItemByID(Item.ID);
 
+        AddItemToInventory(item);
+        Destroy(Item.gameObject);
+    }
+    public void AddItemToInventory(Item item)
+    {
         if (item != null)
         {
             // prideti i inventoriu
             inventory.AddItem(item);
             OnInventoryDataChange.Invoke();
-            Destroy(Item.gameObject);
         }
         else
-            Debug.LogError("[Item Manager] item ID not found in the DB, ID: " + Item.ID);
+            Debug.LogError("[Item Manager] item ID not found in the DB, ID: " + item.id);
     }
-    public void EquipItem(UIItemID item)
+    public void EquipItem(InventoryUIItemID item)
     {
         //gauti itemo data is DB
         Item itemdata = ItemDatabase.instance.GetItemByID(item.ID);
@@ -44,12 +46,12 @@ public class ItemManager : MonoBehaviour
         EquipmentManager.Instance.EquipItem(itemdata, out itemToSwap);
 
         //jei ne null, perkelti i kita data lista
-        if(itemToSwap != null)
-        inventory.UnequipItem(itemToSwap);
+        if (itemToSwap != null)
+            inventory.UnequipItem(itemToSwap);
 
         OnInventoryDataChange.Invoke();
     }
-    public void UnequipItem(UIItemID item)
+    public void UnequipItem(InventoryUIItemID item)
     {
         Item itemdata = ItemDatabase.instance.GetItemByID(item.ID);
         inventory.UnequipItem(itemdata);

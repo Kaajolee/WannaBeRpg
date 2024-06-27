@@ -40,7 +40,7 @@ public class InventoryUIController : MonoBehaviour
 
             itemName.text = item.name;
             itemImage.sprite = item.icon;
-            uiItemInstance.GetComponent<UIItemID>().ID = item.id;
+            uiItemInstance.GetComponent<InventoryUIItemID>().ID = item.id;
         }
         else
             Debug.LogError("[InventoryUIController] instantiated item is null");
