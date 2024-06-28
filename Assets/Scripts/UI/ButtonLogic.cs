@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ButtonLogic : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public GameObject ParentGO;
     
     void Start()
     {
@@ -14,9 +12,9 @@ public class ButtonLogic : MonoBehaviour
 
     public void OnCloseClicked()
     {
-        ToggleGameObject(ParentGO);
+        DestroyGameObject(gameObject);
     }
-    void ToggleGameObject(GameObject gameObject)
+    void DestroyGameObject(GameObject gameObject)
     {
         gameObject.SetActive(!gameObject.activeSelf);
     }

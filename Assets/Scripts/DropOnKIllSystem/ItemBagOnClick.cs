@@ -6,29 +6,28 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
 
-public class ItemBagOnClick : MonoBehaviour
+public class ItemBagDataController : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    public delegate void ItemBagDataControllerEventHandler();
+    public event ItemBagDataControllerEventHandler OnItemBagClick;
     public Item[] items { get; private set; }
     [SerializeField]
     private int itemAmount;
 
-    GameObject ItemBagPanel;
-    GameObject UIItemPrefab;
-    Transform Canvas;
-    Button TakeAllButton;
-    ReferenceHolder RH;
+    //GameObject ItemBagPanel;
 
     void Start()
     {
-        ItemBagPanel = ReferenceVault.Instance.ItemBagPanel;
-        Canvas = ReferenceVault.Instance.MainCanvas.transform;
-        UIItemPrefab = ReferenceVault.Instance.UIItemPrefab;
+
+    }
+    private void OnEnable()
+    {
+        LoadItems();
     }
     private void OnMouseDown()
     {
-        LoadItems();
+        OnItemBagClick?.Invoke();
     }
     private void LoadItems()
     {
@@ -40,12 +39,7 @@ public class ItemBagOnClick : MonoBehaviour
             Debug.LogWarning("[ItemBagOnClick] DropTable empty");
         else
             Debug.Log("[ItemBagOnClick] Droptable item count: "+ items.Length);
-
-    }
-
-    private void SubscribeToButtonClick(Button button)
-    {
-        button.onClick.AddListener(MoveItemsToInventory);
+        
     }
     void MoveItemsToInventory()
     {

@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class ItemBagUIController : MonoBehaviour
 {
@@ -16,7 +13,7 @@ public class ItemBagUIController : MonoBehaviour
 
     ReferenceHolder RH;
 
-    ItemBagOnClick BagOnClick;
+    ItemBagDataController BagData;
 
 
     void Start()
@@ -25,12 +22,13 @@ public class ItemBagUIController : MonoBehaviour
         Canvas = ReferenceVault.Instance.MainCanvas.transform;
         UIItemPrefab = ReferenceVault.Instance.UIItemPrefab;
 
-        BagOnClick = GetComponent<ItemBagOnClick>();
+        BagData = GetComponent<ItemBagDataController>();
+
+        BagData.OnItemBagClick += InstantiateBagUI;
     }
-    private void InstantiateBagUI(Item item)
+    private void InstantiateItemInBag(Item item, in ReferenceHolder RH)
     {
-        GameObject go = Instantiate(ItemBagPanel, Canvas);
-        RH = go.GetComponent<ReferenceHolder>();
+
 
         GameObject uiItemInstance = Instantiate(UIItemPrefab, RH.ContentGO.transform);
 
@@ -48,25 +46,45 @@ public class ItemBagUIController : MonoBehaviour
         else
             Debug.LogError("[InventoryUIController] instantiated item is null");
     }
-    private void TogglePanel(bool enabled)
+    private void TogglePanel(GameObject panel, bool enabled)
     {
-        ItemBagPanel.SetActive(enabled);
+        panel.SetActive(enabled);
     }
 
-    void UpdateBagUI()
+    public void InstantiateBagUI()
     {
-        CleanBagUI();
+        GameObject panel;
+        InstantiateBagPanel(out panel);
+        ReferenceHolder RH = panel.GetComponent<ReferenceHolder>();
 
-        foreach (var item in BagOnClick.items)
+        CleanBagUI(RH);
+
+        foreach (var item in BagData.items)
         {
-            InstantiateBagUI(item);
+            InstantiateItemInBag(item, RH);
         }
+        TogglePanel(panel, true);
     }
-    void CleanBagUI()
+    void CleanBagUI(in ReferenceHolder RH)
     {
+
         foreach (Transform item in RH.ContentGO.transform)
         {
             Destroy(item.gameObject);
         }
+    }
+    void UpdateBagContent(in ReferenceHolder RH)
+    {
+        CleanBagUI(RH);
+
+        foreach (var item in BagData.items)
+        {
+            InstantiateItemInBag(item, RH);
+        }
+    }
+    void InstantiateBagPanel(out GameObject panel)
+    {
+        panel = Instantiate(ItemBagPanel, Canvas);
+        RH = panel.GetComponent<ReferenceHolder>();
     }
 }

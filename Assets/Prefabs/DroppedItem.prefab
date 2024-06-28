@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 4474509310341153474}
   - component: {fileID: 8701503283150331581}
   - component: {fileID: 6288574339272974131}
-  - component: {fileID: 4575693325587744096}
+  - component: {fileID: 3084339438444706337}
   m_Layer: 5
   m_Name: DroppedItem
   m_TagString: Untagged
@@ -331,9 +331,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4575693325587744096}
-        m_TargetAssemblyTypeName: UIItemID, Assembly-CSharp
-        m_MethodName: EquipItem
+      - m_Target: {fileID: 3084339438444706337}
+        m_TargetAssemblyTypeName: DroppedUIItemID, Assembly-CSharp
+        m_MethodName: OnItemClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -343,7 +343,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4575693325587744096
+--- !u!114 &3084339438444706337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5809398110279429701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e6bab4cdb742c848bb2ecb185d2ce54, type: 3}
+  m_Script: {fileID: 11500000, guid: 50c3cb66061032a459cd42cf40cf2162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
