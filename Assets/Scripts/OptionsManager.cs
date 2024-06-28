@@ -47,6 +47,7 @@ public class OptionsManager : MonoBehaviour
         ApplyScreenType();
         ApplySound();
         ApplyMaxFps();
+        QualitySettings.vSyncCount = 0;
         MainMenu.instance.BackButtonSelect();
     }
     public void BackButtonPressed()

@@ -85,6 +85,14 @@ public class ItemBagUIController : MonoBehaviour
     void InstantiateBagPanel(out GameObject panel)
     {
         panel = Instantiate(ItemBagPanel, Canvas);
+
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 0;
+        if (mousePos.x > Screen.width / 2)
+            panel.transform.position = mousePos + new Vector3(120, 0, 0);
+        else
+            panel.transform.position = mousePos + new Vector3(-120,0,0);
+
         RH = panel.GetComponent<ReferenceHolder>();
     }
 }

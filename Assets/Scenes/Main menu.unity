@@ -5466,7 +5466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterColorSelector: {fileID: 0}
-  colorDataObj: {fileID: 11400000, guid: 873fc3c2ab6d6b640b88fe896579e2ae, type: 2}
+  colorDataObj: {fileID: 11400000, guid: 0fc30336aa852bb44bfbeb06fba1c1ed, type: 2}
 --- !u!1 &716428103
 GameObject:
   m_ObjectHideFlags: 0
