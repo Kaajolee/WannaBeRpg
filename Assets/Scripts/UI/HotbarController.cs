@@ -14,6 +14,7 @@ public class HotberController : MonoBehaviour
     void Start()
     {
         ChildGet(out hotbarItems);
+        ChangeTransparency();
     }
 
     // Update is called once per frame
@@ -22,16 +23,19 @@ public class HotberController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentSelection = 0;
+            ChangeTransparency();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             currentSelection = 1;
+            ChangeTransparency();
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             currentSelection = 2;
+            ChangeTransparency();
         }
-        ChangeTransparency();
+        
 
     }
     void ChildGet(out GameObject[] hotbarItems)
