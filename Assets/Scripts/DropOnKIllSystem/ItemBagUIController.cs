@@ -9,9 +9,6 @@ public class ItemBagUIController : MonoBehaviour
 
     Transform Canvas;
 
-    Button TakeAllButton;
-
-    ReferenceHolder RH;
 
     ItemBagDataController BagData;
 
@@ -92,7 +89,5 @@ public class ItemBagUIController : MonoBehaviour
             panel.transform.position = mousePos + new Vector3(120, 0, 0);
         else
             panel.transform.position = mousePos + new Vector3(-120,0,0);
-
-        RH = panel.GetComponent<ReferenceHolder>();
     }
 }

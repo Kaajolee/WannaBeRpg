@@ -16,6 +16,6 @@ public class ButtonLogic : MonoBehaviour
     }
     void DestroyGameObject(GameObject gameObject)
     {
-        gameObject.SetActive(!gameObject.activeSelf);
+        Destroy(gameObject);
     }
 }

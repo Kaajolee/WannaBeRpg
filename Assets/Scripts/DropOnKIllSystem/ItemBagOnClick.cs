@@ -14,12 +14,6 @@ public class ItemBagDataController : MonoBehaviour
     [SerializeField]
     private int itemAmount;
 
-    //GameObject ItemBagPanel;
-
-    void Start()
-    {
-
-    }
     private void OnEnable()
     {
         LoadItems();
@@ -30,7 +24,8 @@ public class ItemBagDataController : MonoBehaviour
     }
     private void LoadItems()
     {
-        Random.Range(0, 3);
+        //Random.Range(0, 3);
+
         items = new Item[itemAmount];
         items = ItemDatabase.instance.GetRandomItems(itemAmount);
 
