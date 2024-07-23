@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,9 +36,12 @@ public class ItemBagDataController : MonoBehaviour
             Debug.Log("[ItemBagOnClick] Droptable item count: "+ items.Length);
         
     }
-    void MoveItemsToInventory()
+    public void MoveAllItemsToInventory()
     {
-
+        foreach (Item item in items)
+        {
+            ItemManager.Instance.inventory.AddItem(item);
+        }
     }
 
 }

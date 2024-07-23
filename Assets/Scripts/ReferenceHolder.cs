@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ReferenceHolder : MonoBehaviour
 {
-    
     public GameObject ContentGO;
     public GameObject CurrentItemDropGO;
+    public Scrollbar scrollbar;
     public Button TakeAllButton;
 }
