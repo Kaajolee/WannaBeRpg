@@ -47,6 +47,7 @@ public class ItemBagUIController : MonoBehaviour
     public void InstantiateBagUI()
     {
         ReferenceHolder RH = ItemBagGO.GetComponent<ReferenceHolder>();
+        RH.CurrentItemDropGO = gameObject;
 
         CleanBagUI(RH);
 

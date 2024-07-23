@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ReferenceHolder : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     public GameObject ContentGO;
+    public GameObject CurrentItemDropGO;
     public Button TakeAllButton;
 }

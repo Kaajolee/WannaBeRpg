@@ -12,10 +12,7 @@ public class ButtonLogic : MonoBehaviour
 
     public void OnCloseClicked()
     {
-        DestroyGameObject(gameObject);
-    }
-    void DestroyGameObject(GameObject gameObject)
-    {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        
     }
 }
