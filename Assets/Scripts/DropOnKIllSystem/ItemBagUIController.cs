@@ -4,10 +4,12 @@ using UnityEngine.UI;
 
 public class ItemBagUIController : MonoBehaviour
 {
-    GameObject ItemBagPanel;
-    GameObject UIItemPrefab;
-
-    Transform Canvas;
+    [SerializeField]
+    private GameObject ItemBagContent;
+    [SerializeField]
+    private GameObject UIItemPrefab;
+    [SerializeField]
+    private Transform Canvas;
 
 
     ItemBagDataController BagData;
@@ -15,10 +17,6 @@ public class ItemBagUIController : MonoBehaviour
 
     void Start()
     {
-        ItemBagPanel = ReferenceVault.Instance.ItemBagPanel;
-        Canvas = ReferenceVault.Instance.MainCanvas.transform;
-        UIItemPrefab = ReferenceVault.Instance.UIItemPrefab;
-
         BagData = GetComponent<ItemBagDataController>();
 
         BagData.OnItemBagClick += InstantiateBagUI;
