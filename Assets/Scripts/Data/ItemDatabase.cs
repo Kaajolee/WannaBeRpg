@@ -30,23 +30,24 @@ public class ItemDatabase : MonoBehaviour
         }
         return null;
     }
-    public Item[] GetRandomItems(int amount)
+    public List<Item> GetRandomItems(int amount)
     {
+
         if (amount <= 0)
             return null;
 
-        Item[] itemArray = new Item[amount];
+        List<Item> itemArray = new List<Item>();
 
         if (amount == 1)
         {
-            itemArray[0] = GetItemByID(Random.Range(0, itemData.Count));
+            itemArray.Add(GetItemByID(Random.Range(0, itemData.Count)));
             return itemArray;
         }
 
         for (int i = 0; i < amount; i++)
         {
             int index = Random.Range(0, itemData.Count);
-            itemArray[i] = GetItemByID(index);
+            itemArray.Add(GetItemByID(index));
         }
 
         return itemArray;

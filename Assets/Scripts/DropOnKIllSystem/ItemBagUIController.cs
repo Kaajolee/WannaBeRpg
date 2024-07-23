@@ -10,16 +10,17 @@ public class ItemBagUIController : MonoBehaviour
 
 
     ItemBagDataController BagData;
-
+    ReferenceHolder RH;
 
     void Start()
     {
         ItemBagGO = ReferenceVault.Instance.ItemBagPanel;
+        RH = ItemBagGO.GetComponent<ReferenceHolder>();
         BagData = GetComponent<ItemBagDataController>();
 
         BagData.OnItemBagClick += InstantiateBagUI;
     }
-    private void InstantiateItemInBag(Item item, in ReferenceHolder RH)
+    private void InstantiateItemInBag(Item item)
     {
 
 
@@ -46,18 +47,17 @@ public class ItemBagUIController : MonoBehaviour
 
     public void InstantiateBagUI()
     {
-        ReferenceHolder RH = ItemBagGO.GetComponent<ReferenceHolder>();
         RH.CurrentItemDropGO = gameObject;
 
-        CleanBagUI(RH);
+        CleanBagUI();
 
         foreach (var item in BagData.items)
         {
-            InstantiateItemInBag(item, RH);
+            InstantiateItemInBag(item);
         }
         ShowBagPanel();
     }
-    void CleanBagUI(in ReferenceHolder RH)
+    void CleanBagUI()
     {
 
         foreach (Transform item in RH.ContentGO.transform)
@@ -65,13 +65,13 @@ public class ItemBagUIController : MonoBehaviour
             Destroy(item.gameObject);
         }
     }
-    void UpdateBagContent(in ReferenceHolder RH)
+    public void UpdateBagContent()
     {
-        CleanBagUI(RH);
+        CleanBagUI();
 
         foreach (var item in BagData.items)
         {
-            InstantiateItemInBag(item, RH);
+            InstantiateItemInBag(item);
         }
     }
     void ShowBagPanel()
@@ -84,5 +84,10 @@ public class ItemBagUIController : MonoBehaviour
             ItemBagGO.transform.position = mousePos + new Vector3(120, 0, 0);
         else
             ItemBagGO.transform.position = mousePos + new Vector3(-120,0,0);
+    }
+    public void LastItemClickedInBag()
+    {
+        TogglePanel(ItemBagGO, false);
+        Destroy(gameObject);
     }
 }

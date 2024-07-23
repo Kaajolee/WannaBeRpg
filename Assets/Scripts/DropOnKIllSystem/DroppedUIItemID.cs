@@ -5,13 +5,12 @@ using UnityEngine;
 public class DroppedUIItemID : MonoBehaviour
 {
     public int ID;
-    GameObject parent;
     public void OnItemClicked()
     {
-        ItemManager.Instance.AddItemToInventory(ItemDatabase.instance.GetItemByID(ID));
+        ReferenceVault.Instance.ItemBagPanel.GetComponent<ReferenceHolder>().CurrentItemDropGO.GetComponent<ItemBagDataController>().MoveItem(ID);
     }
     private void OnEnable()
     {
-        parent = transform.parent.gameObject;
+        
     }
 }

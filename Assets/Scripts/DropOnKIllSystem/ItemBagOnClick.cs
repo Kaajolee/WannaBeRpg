@@ -11,9 +11,12 @@ public class ItemBagDataController : MonoBehaviour
     // Start is called before the first frame update
     public delegate void ItemBagDataControllerEventHandler();
     public event ItemBagDataControllerEventHandler OnItemBagClick;
-    public Item[] items { get; private set; }
+
+    public List<Item> items { get; private set; }
     [SerializeField]
     private int itemAmount;
+
+    ItemBagUIController itemBagUIController;
 
     private void OnEnable()
     {
@@ -23,24 +26,49 @@ public class ItemBagDataController : MonoBehaviour
     {
         OnItemBagClick?.Invoke();
     }
+    private void Start()
+    {
+        itemBagUIController = GetComponent<ItemBagUIController>();
+    }
     private void LoadItems()
     {
         //Random.Range(0, 3);
 
-        items = new Item[itemAmount];
         items = ItemDatabase.instance.GetRandomItems(itemAmount);
 
-        if (items.Length == 0)
+        if (items.Count == 0)
             Debug.LogWarning("[ItemBagOnClick] DropTable empty");
         else
-            Debug.Log("[ItemBagOnClick] Droptable item count: "+ items.Length);
+            Debug.Log("[ItemBagOnClick] Droptable item count: "+ items.Count);
         
+    }
+    public void MoveItem(int itemID)
+    {
+        foreach (var item in items)
+        {
+            if(item.id == itemID)
+            {
+                ItemManager.Instance.inventory.AddItem(item);
+                items.Remove(item);
+                itemBagUIController.UpdateBagContent();
+                LastItemCheck();
+                break;
+            }
+        }
     }
     public void MoveAllItemsToInventory()
     {
         foreach (Item item in items)
         {
             ItemManager.Instance.inventory.AddItem(item);
+        }
+        items.Clear();
+    }
+    void LastItemCheck()
+    {
+        if(items.Count == 0)
+        {
+            itemBagUIController.LastItemClickedInBag();
         }
     }
 
