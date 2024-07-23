@@ -5,11 +5,8 @@ using UnityEngine.UI;
 public class ItemBagUIController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject ItemBagContent;
-    [SerializeField]
     private GameObject UIItemPrefab;
-    [SerializeField]
-    private Transform Canvas;
+    GameObject ItemBagGO;
 
 
     ItemBagDataController BagData;
@@ -17,6 +14,7 @@ public class ItemBagUIController : MonoBehaviour
 
     void Start()
     {
+        ItemBagGO = ReferenceVault.Instance.ItemBagPanel;
         BagData = GetComponent<ItemBagDataController>();
 
         BagData.OnItemBagClick += InstantiateBagUI;
@@ -31,7 +29,7 @@ public class ItemBagUIController : MonoBehaviour
         {
             TextMeshProUGUI itemName = uiItemInstance.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
             Image itemImage = uiItemInstance.transform.Find("ItemIcon").GetComponent<Image>();
-            //SubscribeToButtonClick(uiItemInstance.GetComponent<Button>());
+            
 
 
             itemName.text = item.name;
@@ -48,9 +46,7 @@ public class ItemBagUIController : MonoBehaviour
 
     public void InstantiateBagUI()
     {
-        GameObject panel;
-        InstantiateBagPanel(out panel);
-        ReferenceHolder RH = panel.GetComponent<ReferenceHolder>();
+        ReferenceHolder RH = ItemBagGO.GetComponent<ReferenceHolder>();
 
         CleanBagUI(RH);
 
@@ -58,7 +54,7 @@ public class ItemBagUIController : MonoBehaviour
         {
             InstantiateItemInBag(item, RH);
         }
-        TogglePanel(panel, true);
+        ShowBagPanel();
     }
     void CleanBagUI(in ReferenceHolder RH)
     {
@@ -77,15 +73,15 @@ public class ItemBagUIController : MonoBehaviour
             InstantiateItemInBag(item, RH);
         }
     }
-    void InstantiateBagPanel(out GameObject panel)
+    void ShowBagPanel()
     {
-        panel = Instantiate(ItemBagPanel, Canvas);
+        TogglePanel(ItemBagGO, true);
 
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 0;
         if (mousePos.x > Screen.width / 2)
-            panel.transform.position = mousePos + new Vector3(120, 0, 0);
+            ItemBagGO.transform.position = mousePos + new Vector3(120, 0, 0);
         else
-            panel.transform.position = mousePos + new Vector3(-120,0,0);
+            ItemBagGO.transform.position = mousePos + new Vector3(-120,0,0);
     }
 }

@@ -134,6 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e46622d5f4ef8045a85aff25a279ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemBagGO: {fileID: 0}
+  UIItemPrefab: {fileID: 5809398110279429701, guid: a81a2ce68c6a4a741b9375ad9b0116f6,
+    type: 3}
 --- !u!198 &1877664768596002293
 ParticleSystem:
   m_ObjectHideFlags: 0
