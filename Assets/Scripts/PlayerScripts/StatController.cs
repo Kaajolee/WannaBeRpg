@@ -17,6 +17,8 @@ public class StatController : MonoBehaviour
 
     public int level;
     public int xp;
+    public int totalXp;
+    public int xpRequired;
     public int baseXpReward;
     public float critChance;
 
@@ -24,9 +26,10 @@ public class StatController : MonoBehaviour
     {
         Instance = this;
     }
+    
     private void Start()
     {
-        //MweaponDamage = EquipController.equipedWeapon.value;
+        xpRequired = CalculateXpForNextLevel(level);
     }
     private void Update()
     {
@@ -76,15 +79,18 @@ public class StatController : MonoBehaviour
         int roundedXp = (int)Math.Round(gainedXp);
         
         xp += roundedXp;
+        totalXp += roundedXp;
 
         LevelUp();
     }
     public void LevelUp()
     {
-        if(xp >= 100)
+        if(xp >= CalculateXpForNextLevel(level))
         {
             level++;
-            xp = xp - 100;
+            xp = 0;
+            Debug.Log($"Player leveled from: {level - 1} to {level}");
+            xpRequired = CalculateXpForNextLevel(level);
         }
     }
     public void AddArmor(int value)
@@ -102,5 +108,13 @@ public class StatController : MonoBehaviour
     public void AddIntelligence(int value)
     {
         intelligence += value;
+    }
+    int CalculateXpForNextLevel(int level)
+    {
+        int xpRequirement = 0;
+
+        xpRequirement = (4 * (int)Math.Pow(level, 3)) - (6 * (int)Math.Pow(level, 2)) + 20 * level - 9;
+
+        return xpRequirement;
     }
 }

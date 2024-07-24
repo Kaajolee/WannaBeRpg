@@ -43,6 +43,7 @@ public class EnemyHealthController : HealthController
             DissolveController dissolve = GetComponent<DissolveController>();
             taskHolder.UpdateQuest();
             MoneyController.instance.EnemyKilled(GetComponent<EnemyStatController>().CalculateMoneyDropAmount());
+            StatController.Instance.GainXp(statController.enemyLevel);
             GetComponent<DropItems>().DropItemOnGround();
             GlobalEvents.Instance.EnemyKilled();
             dissolve.StartDissolver();

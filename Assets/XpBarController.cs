@@ -16,8 +16,11 @@ public class XpBarController : MonoBehaviour
     {
         UpdateUI();
         GlobalEvents.Instance.OnEnemyKilled += UpdateUI;
-        xpBar.maxValue = 100;
+
+        xpBar.maxValue = StatController.Instance.xpRequired;
         xpBar.value = 0;
+        xpBar.interactable = false;
+
     }
     void UpdateUI()
     {
@@ -32,5 +35,6 @@ public class XpBarController : MonoBehaviour
     void UpdateSlider()
     {
         xpBar.value = StatController.Instance.xp;
+        xpBar.maxValue = StatController.Instance.xpRequired;
     }
 }
