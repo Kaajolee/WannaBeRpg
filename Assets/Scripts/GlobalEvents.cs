@@ -8,8 +8,10 @@ public class GlobalEvents : MonoBehaviour
     // Start is called before the first frame update
     public static GlobalEvents Instance { get; private set; }
 
-    public delegate void EnemyKilledEventHandler();
-    public event EnemyKilledEventHandler OnEnemyKilled;
+    public delegate void GameEventHandler();
+
+    public event GameEventHandler OnEnemyKilled;
+    public event GameEventHandler OnQuestCompleted;
 
     void Start()
     {
@@ -19,6 +21,11 @@ public class GlobalEvents : MonoBehaviour
     {
         OnEnemyKilled.Invoke();
         Debug.Log("EnemyKilled event invoked");
+    }
+    public void QuestCompleted()
+    {
+        OnQuestCompleted.Invoke();
+        Debug.Log("QuestCompleted event invoked");
     }
 
 }
