@@ -31,6 +31,7 @@ public class QuestManager : MonoBehaviour
         mediator.QuestItemPrefabInProgress = QuestItemPrefabInProgress;
         mediator.ItemContentInProgress = ItemContentInProgress;
 
+        GlobalEvents.Instance.OnQuestCompleted += UpdateUI;
         OnQuestDataChanged += RefreshInProgressQuests;
 
     }
