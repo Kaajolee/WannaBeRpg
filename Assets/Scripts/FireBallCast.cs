@@ -54,16 +54,21 @@ public class FireBallCast : MonoBehaviour
     }
     void StartCasting()
     {
-        instantiatedCastBarObject = CastBar.CreateCastBar(GameObject.FindGameObjectWithTag("castBarLocation").transform);
-        //Debug.Log(GameObject.FindGameObjectWithTag("castBarLocation").transform.position);
-        instantiatedCastBarSlider = instantiatedCastBarObject.GetComponentInChildren<UnityEngine.UI.Slider>();
+        Transform castBarLocation = GameObject.FindGameObjectWithTag("castBarLocation")?.transform;
 
-        isCasting = true;
-        currentCastTime = 0f;
-        animator.Play("SpellCast");
+        if (castBarLocation != null)
+        {
+            instantiatedCastBarObject = CastBar.CreateCastBar(castBarLocation);
+            //Debug.Log(GameObject.FindGameObjectWithTag("castBarLocation").transform.position);
+            instantiatedCastBarSlider = instantiatedCastBarObject.GetComponentInChildren<UnityEngine.UI.Slider>();
 
-        audioSource.clip = SoundVault.Instance.fireBallCastSound;
-        audioSource.Play();
+            isCasting = true;
+            currentCastTime = 0f;
+            animator.Play("SpellCast");
+
+            audioSource.clip = SoundVault.Instance.fireBallCastSound;
+            audioSource.Play();
+        }
 
     }
     void UpdateCastTimer()
