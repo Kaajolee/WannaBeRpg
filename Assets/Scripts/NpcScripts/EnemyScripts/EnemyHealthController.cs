@@ -44,8 +44,8 @@ public class EnemyHealthController : HealthController
             taskHolder.UpdateQuest();
             MoneyController.instance.EnemyKilled(GetComponent<EnemyStatController>().CalculateMoneyDropAmount());
             GetComponent<DropItems>().DropItemOnGround();
+            GlobalEvents.Instance.EnemyKilled();
             dissolve.StartDissolver();
-            //Destroy(gameObject);
         }
     }
     public override void TakeDamage(int damageAmount)

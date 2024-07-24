@@ -10,11 +10,14 @@ public class MoneyAndLevelUI : MonoBehaviour
     private void Start()
     {
         texts = panelGO.GetComponentsInChildren<TextMeshProUGUI>();
+
+        GlobalEvents.Instance.OnEnemyKilled += UpdateTexts;
+        UpdateTexts();
     }
     // Update is called once per frame
     void Update()
     {
-        UpdateTexts();
+
     }
     void UpdateTexts()
     {

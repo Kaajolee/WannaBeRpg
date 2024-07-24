@@ -80,8 +80,6 @@ public class HotberController : MonoBehaviour
         Color bgColorNumber = number.color;
         bgColorNumber.a = value;
         number.color = bgColorNumber;
-
     }
-
 
 }
