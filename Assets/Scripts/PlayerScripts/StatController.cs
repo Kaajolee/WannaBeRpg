@@ -37,22 +37,18 @@ public class StatController : MonoBehaviour
     }
     public int CalculateMeleeAttackDamage(out bool isCrit)
     {
-        //MweaponDamage = EquipController.equipedWeapon.value;
-        int damage;
+
+       int baseDamage = (int)(MweaponDamage + strength * 0.5f);
+
         if (UnityEngine.Random.Range(0,5) == 1)
         {
-           damage = (int)Math.Round(MweaponDamage + strength * 0.5f + MweaponDamage * 0.5f);
+            baseDamage = (int)Math.Round(baseDamage + MweaponDamage * 0.5f);
             isCrit = true;
+            return baseDamage;
         }
-        else
-        {
-            damage = (int)Math.Round(MweaponDamage + strength * 0.5f);
-            isCrit = false;
-        }
-            
+        isCrit = false;
+        return baseDamage;
 
-
-        return damage;
     }
     public int GetMeleeDamage()
     {   int damage;
