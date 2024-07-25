@@ -11,11 +11,15 @@ public class XpBarController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI nextLevelText;
     [SerializeField]
+    private TextMeshProUGUI xpText;
+    [SerializeField]
     private Slider xpBar;
     void Start()
     {
         UpdateUI();
+        UpdateXpText();
         GlobalEvents.Instance.OnEnemyKilled += UpdateUI;
+        GlobalEvents.Instance.OnEnemyKilled += UpdateXpText;
 
         xpBar.maxValue = StatController.Instance.xpRequired;
         xpBar.value = 0;
@@ -36,5 +40,9 @@ public class XpBarController : MonoBehaviour
     {
         xpBar.value = StatController.Instance.xp;
         xpBar.maxValue = StatController.Instance.xpRequired;
+    }
+    void UpdateXpText()
+    {
+        xpText.text = $"{StatController.Instance.xp}/{StatController.Instance.xpRequired}";
     }
 }

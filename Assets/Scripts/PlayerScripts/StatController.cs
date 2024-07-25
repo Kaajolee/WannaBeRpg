@@ -85,12 +85,16 @@ public class StatController : MonoBehaviour
     }
     public void LevelUp()
     {
-        if(xp >= CalculateXpForNextLevel(level))
+        int required = CalculateXpForNextLevel(level);
+
+        if (xp >= required)
         {
+            xp = xp - required;
             level++;
-            xp = 0;
             Debug.Log($"Player leveled from: {level - 1} to {level}");
             xpRequired = CalculateXpForNextLevel(level);
+            GlobalEvents.Instance.LevelUp();
+            LevelUp();
         }
     }
     public void AddArmor(int value)

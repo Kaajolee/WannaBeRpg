@@ -12,6 +12,7 @@ public class GlobalEvents : MonoBehaviour
 
     public event GameEventHandler OnEnemyKilled;
     public event GameEventHandler OnQuestCompleted;
+    public event GameEventHandler OnLevelUp;
 
     void Start()
     {
@@ -26,6 +27,11 @@ public class GlobalEvents : MonoBehaviour
     {
         OnQuestCompleted.Invoke();
         Debug.Log("QuestCompleted event invoked");
+    }
+    public void LevelUp()
+    {
+        OnLevelUp?.Invoke();
+        Debug.Log("OnLevelUp event invoked");
     }
 
 }
