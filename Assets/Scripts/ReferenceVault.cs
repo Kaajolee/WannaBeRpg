@@ -8,6 +8,7 @@ public class ReferenceVault : MonoBehaviour
     public Canvas MainCanvas;
     public GameObject ItemBagPanel;
     public GameObject UIItemPrefab;
+    public GameObject buttonTextBox;
 
     private void Start()
     {
