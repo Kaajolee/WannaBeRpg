@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
 
 public class OptionsManager : MonoBehaviour
 {
@@ -34,9 +33,10 @@ public class OptionsManager : MonoBehaviour
 
         width = 1920;
         height = 1080;
+
+        vSynctoggle.enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
