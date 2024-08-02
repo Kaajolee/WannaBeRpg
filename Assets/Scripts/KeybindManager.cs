@@ -8,6 +8,11 @@ public class KeybindManager : MonoBehaviour
     public GameObject questPanel;
     public GameObject performancePanel;
     public GameObject characterPanel;
+    public Canvas canvas;
+    private void Start()
+    {
+        canvas = ReferenceVault.Instance.MainCanvas;
+    }
 
     // Update is called once per frame
     void Update()
@@ -34,6 +39,10 @@ public class KeybindManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             SwitchActive(characterPanel);
+        }
+        if(Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            SwitchActive(canvas.gameObject);
         }
     }
     private void SwitchActive(GameObject ob)
