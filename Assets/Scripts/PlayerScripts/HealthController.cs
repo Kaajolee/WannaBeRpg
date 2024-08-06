@@ -41,6 +41,8 @@ public class PlayerHealthController : HealthController
         health -= StatController.Instance.CalculateDamageTake(damageAmount);
         Debug.Log($"{gameObject.name} hit, current health: {health}");
         health = Mathf.Clamp(health, 0, maxHealth);
+
+        GlobalEvents.Instance.DamageTaken();
         //healthText.text = $"HP:{health}";
     }
 }

@@ -20,12 +20,14 @@ public class HealthManaController : MonoBehaviour
         healthSlider.maxValue = instance.maxHealth;
         healthSlider.value = instance.health;
         healthText.text = instance.health.ToString();
+
+        GlobalEvents.Instance.OnDamageTaken += ChangeHealthText;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ChangeHealthText();
+        
     }
     void ChangeHealthText()
     {
