@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dbc6816754cfee45ae6cde701ab209e, type: 3}
-  m_Name: Sword
+  m_Name: StrengthPot
   m_EditorClassIdentifier: 
-  id: 3
-  itemName: Sword
-  value: 18
-  icon: {fileID: 21300000, guid: 050891e933439f34991f2afd1a226ead, type: 3}
-  itemType: 1
-  weaponType: 1
-  prefab: {fileID: 355312524381552382, guid: 88a40977acc7bfb49bfd51e3b0e8d0e3, type: 3}
-  mesh: {fileID: -2490357807671972370, guid: d00dec123be83b445adbe6c8f3f02f41, type: 3}
+  id: 6
+  itemName: Strength Potion
+  value: 5
+  icon: {fileID: 21300000, guid: 6be9a14523b1f524c9b65b65470629ac, type: 3}
+  itemType: 0
+  weaponType: 0
+  prefab: {fileID: 3958606190484055253, guid: 692f25d2ab083c142b83b4e5a39ed3b0, type: 3}
+  mesh: {fileID: 0}
