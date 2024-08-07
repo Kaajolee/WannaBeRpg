@@ -4471,7 +4471,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 418649308}
-  - component: {fileID: 418649309}
   m_Layer: 0
   m_Name: MoneyLevelUIController
   m_TagString: Untagged
@@ -4494,19 +4493,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 714955578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &418649309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418649307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bae10906ccc0d947924445c0ae3306e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelGO: {fileID: 0}
 --- !u!1001 &420154779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14711,7 +14697,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191004715}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38241804, y: -0.28823748, z: 0.12689307, w: 0.8686621}
+  m_LocalRotation: {x: 0.38241804, y: -0.28823745, z: 0.12689306, w: 0.8686621}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -22657,7 +22643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869352614}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.39811388, y: -0.285888, z: 0.13210122, w: 0.8615815}
+  m_LocalRotation: {x: 0.39811388, y: -0.285888, z: 0.13210124, w: 0.8615815}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
