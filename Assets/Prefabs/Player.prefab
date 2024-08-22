@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 4751564320795446449}
   - component: {fileID: 4608545092811095637}
   - component: {fileID: 5431397069691160121}
+  - component: {fileID: 7766507294339699553}
   m_Layer: 7
   m_Name: Player
   m_TagString: player
@@ -649,6 +650,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicPlayer: {fileID: 7608823438293208368}
+--- !u!114 &7766507294339699553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897967735444762139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd0a6731489a3c4e858884af4eec7d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfx: {fileID: 5567045051901004504}
+  particleCount: 10
 --- !u!1 &903258490501618612
 GameObject:
   m_ObjectHideFlags: 0
@@ -5397,7 +5412,7 @@ GameObject:
   - component: {fileID: 5567045051901004504}
   - component: {fileID: 8592162336039530201}
   m_Layer: 0
-  m_Name: test
+  m_Name: Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5501,7 +5516,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -8074,7 +8089,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -8231,7 +8246,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.5
+    frequency: 5
     damping: 1
     octaves: 1
     octaveMultiplier: 0.5
