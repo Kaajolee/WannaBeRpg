@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 1
   itemName: Dagger
   value: 5
+  price: 55
   icon: {fileID: 21300000, guid: 050891e933439f34991f2afd1a226ead, type: 3}
   itemType: 1
   weaponType: 2

@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 0
   itemName: Axe
   value: 10
+  price: 100
   icon: {fileID: 21300000, guid: 5b63e32b35c29be4f998ade4a87be2de, type: 3}
   itemType: 1
   weaponType: 2

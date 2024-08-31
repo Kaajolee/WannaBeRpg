@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 2
   itemName: Health Potion
   value: 20
+  price: 30
   icon: {fileID: 21300000, guid: 5448128511b009d4d8fcf1d934d0f530, type: 3}
   itemType: 0
   weaponType: 0

@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 6
   itemName: Strength Potion
   value: 5
+  price: 40
   icon: {fileID: 21300000, guid: 6be9a14523b1f524c9b65b65470629ac, type: 3}
   itemType: 0
   weaponType: 0

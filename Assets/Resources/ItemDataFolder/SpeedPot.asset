@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 5
   itemName: Speed Potion
   value: 20
+  price: 40
   icon: {fileID: 21300000, guid: c1f4018248671bf47a1566aba4b1b0a2, type: 3}
   itemType: 0
   weaponType: 0
